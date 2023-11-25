@@ -210,7 +210,7 @@ public class CharacterCreator : MonoBehaviour
         if (Random.Range(1000, 1001) == 1000)
         {
             inputLuck.text = "10";
-            GetComponent<AngryFaceController>().gameObject.GetComponent<Image>().enabled = true;
+            //GetComponent<AngryFaceController>().gameObject.GetComponent<Image>().enabled = true;
         }
         else
             inputLuck.text = "0";
