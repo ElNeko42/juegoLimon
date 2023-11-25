@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameController instance;
+
+    public string playerName = string.Empty;
+    public int playerStrength = 0;
+    public int playerKnowledge = 0;
+    public int playerFaith = 0;
+    public int playerLuck = 0;
+
+    private void Awake()
     {
-        
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
     }
 }
