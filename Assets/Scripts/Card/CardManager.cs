@@ -45,6 +45,11 @@ public class CardManager : MonoBehaviour
             CardData cardData = currentCard.GetComponent<CardData>();
             Debug.Log("Card Name: " + cardData.cardName);
             Debug.Log("Card Texts: " + cardData.cardTexts[0]);
+            NameTextMesh.text = cardData.cardName;
+            int randomIndexText = Random.Range(0, cardData.cardTexts.Length);
+            cardTextMesh.text = cardData.cardTexts[randomIndexText];
+            leftOptionTextMesh.text = cardData.leftOptions[randomIndexText];
+            rightOptionTextMesh.text = cardData.rightOptions[randomIndexText];
         }
     }
 
