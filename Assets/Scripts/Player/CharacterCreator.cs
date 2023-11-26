@@ -5,6 +5,11 @@ using System;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
+
+public enum KingIcon { TYPE1, TYPE2, TYPE3 }
 
 public class CharacterCreator : MonoBehaviour
 {
@@ -36,10 +41,10 @@ public class CharacterCreator : MonoBehaviour
     public TMP_InputField inputName;
     List<TMP_InputField> modifiableInputFields;
     public TMP_Text remainingPointsText;
+    public Image kingIcon;
 
     List<string> predefinedNames = new List<string> { "Darius III", "Sin-shar-ishkun", "Paco Porras", "Shakira", "Messi chikito",
         "Alexis Oberana", "Luffy", "Leticia Sabater", "Josefa Raona", "Don Omar"};
-
 
     // Start is called before the first frame update
     void Start()
@@ -207,7 +212,7 @@ public class CharacterCreator : MonoBehaviour
             remainingCharacterPoints = 0;
             remainingPointsText.text = remainingCharacterPoints.ToString();
         }
-        if (Random.Range(1000, 1001) == 1000)
+        if (Random.Range(1, 1001) == 1000)
         {
             inputLuck.text = "10";
             //GetComponent<AngryFaceController>().gameObject.GetComponent<Image>().enabled = true;
@@ -223,5 +228,4 @@ public class CharacterCreator : MonoBehaviour
             inputField.text = "0";
         });
     }
-
 }

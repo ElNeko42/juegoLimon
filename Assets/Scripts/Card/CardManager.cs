@@ -16,7 +16,9 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI NameTextMesh;
     public TextMeshProUGUI cardTextMesh; 
     public TextMeshProUGUI leftOptionTextMesh; 
-    public TextMeshProUGUI rightOptionTextMesh; 
+    public TextMeshProUGUI rightOptionTextMesh;
+
+    int textIndex = 0;
 
     private void Awake()
     {
@@ -58,6 +60,7 @@ public class CardManager : MonoBehaviour
     {
         if (currentCard != null)
         {
+            CardEffect(nextCard);
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             Destroy(currentCard); // Destruye la carta actual
         }
@@ -89,9 +92,9 @@ public class CardManager : MonoBehaviour
     public void DisplayRandomCardText()
     {
         CardData cardData = currentCard.GetComponent<CardData>();
-        int randomIndex = Random.Range(0, cardData.cardTexts.Length);
-        Debug.Log(randomIndex);
-        UpdateCardUI(randomIndex);
+        textIndex = Random.Range(0, cardData.cardTexts.Length);
+        Debug.Log(textIndex);
+        UpdateCardUI(textIndex);
     }
 
     public void UpdateCardUI(int index)
@@ -101,6 +104,39 @@ public class CardManager : MonoBehaviour
         cardTextMesh.text = cardData.cardTexts[index];
         leftOptionTextMesh.text = cardData.leftOptions[index];
         rightOptionTextMesh.text = cardData.rightOptions[index];
+    }
+
+    void CardEffect(bool rightOptionChosen)
+    {
+        if (currentCard != null)
+        {
+            CardData card = currentCard.GetComponent<CardData>();
+            int faithCard;
+            int knowledgeCard;
+            int strengthCard;
+            int lemonCard;
+
+            if (rightOptionChosen)
+            {
+                faithCard = currentCard.GetComponent<CardData>().responsesFeRight[textIndex];
+                knowledgeCard = currentCard.GetComponent<CardData>().responsesPuebloRight[textIndex];
+                strengthCard = currentCard.GetComponent<CardData>().responsesMilitarRight[textIndex];
+                lemonCard = currentCard.GetComponent<CardData>().DineroRight[textIndex];
+
+            } else
+            {
+                faithCard = currentCard.GetComponent<CardData>().responsesFeLeft[textIndex];
+                knowledgeCard = currentCard.GetComponent<CardData>().responsesPuebloLeft[textIndex];
+                strengthCard = currentCard.GetComponent<CardData>().responsesMilitarLeft[textIndex];
+                lemonCard = currentCard.GetComponent<CardData>().DineroLeft[textIndex];
+            }
+
+            GameController.instance.playerFaith += faithCard;
+            GameController.instance.playerKnowledge += knowledgeCard;
+            GameController.instance.playerStrength += strengthCard;
+            GameController.instance.playerLemon += lemonCard;
+
+        }
     }
 
 }
