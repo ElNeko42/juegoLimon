@@ -6,6 +6,7 @@ public class CardManager : MonoBehaviour
 {
     public GameObject[] cards; // Array para almacenar los prefabs de las cartas
     private GameObject currentCard; // La carta actual en la escena
+    private GameObject LastcurrentCard; // la carta anterior
     private int currentCardIndex = 0; // Índice de la carta actual
     private Canvas canvas; // Referencia al Canvas
 
@@ -32,6 +33,7 @@ public class CardManager : MonoBehaviour
             currentCard = Instantiate(cards[randomIndex]);
             currentCard.transform.SetParent(canvas.transform, false); // Establece el Canvas como padre
             currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta
+            LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
         }
     }
 
@@ -40,24 +42,33 @@ public class CardManager : MonoBehaviour
     {
         if (currentCard != null)
         {
+            LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             Destroy(currentCard); // Destruye la carta actual
         }
 
-        // Calcula el índice de la nueva carta
-        if (nextCard)
+        int newIndex;
+        do
         {
-            currentCardIndex = (currentCardIndex + 1) % cards.Length;
-        }
-        else
-        {
-            currentCardIndex = (currentCardIndex - 1 + cards.Length) % cards.Length;
-        }
+            // Calcula el índice de la nueva carta
+            if (nextCard)
+            {
+                newIndex = (currentCardIndex + 1) % cards.Length;
+            }
+            else
+            {
+                newIndex = (currentCardIndex - 1 + cards.Length) % cards.Length;
+            }
+        } while (cards[newIndex] == LastcurrentCard); // Verifica que la nueva carta no sea la misma que la última
+
+        // Actualiza el índice de la carta actual
+        currentCardIndex = newIndex;
 
         // Instancia la nueva carta
         currentCard = Instantiate(cards[currentCardIndex]);
         currentCard.transform.SetParent(canvas.transform, false); // Establece el Canvas como padre
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
     }
+
 
 
 }
