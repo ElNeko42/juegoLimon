@@ -34,6 +34,9 @@ public class CardManager : MonoBehaviour
             currentCard.transform.SetParent(canvas.transform, false); // Establece el Canvas como padre
             currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
+            CardData cardData = currentCard.GetComponent<CardData>();
+            Debug.Log("Card Name: " + cardData.cardName);
+            Debug.Log("Card Texts: " + cardData.cardTexts[0]);
         }
     }
 

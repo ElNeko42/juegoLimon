@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4804501462590323605}
   - component: {fileID: 4804501462590323690}
   - component: {fileID: 4804501462590323691}
+  - component: {fileID: 3127339863307370813}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -92,3 +93,35 @@ MonoBehaviour:
   maxDragDistanceHorizontal: 200
   maxDragDistanceVertical: 100
   maxRotation: 10
+--- !u!114 &3127339863307370813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804501462590323689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef3b8013b0f87848a4322214234418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: Messi
+  cardTexts:
+  - aasdasd
+  - bbbbbbbbbbbbbb
+  leftOptions:
+  - no
+  - tal ves
+  rightOptions:
+  - si
+  - creo que si
+  responsesFeLeft: 0000000003000000
+  responsesFeRight: 05000000feffffff
+  responsesPuebloLeft: fcffffff00000000
+  responsesPuebloRight: 0000000003000000
+  responsesMilitarLeft: 0000000000000000
+  responsesMilitarRight: ffffffff00000000
+  responsesComidaLeft: 0000000000000000
+  responsesComidaRight: 04000000ffffffff
+  DineroLeft: 000000009cffffff
+  DineroRight: c800000000000000

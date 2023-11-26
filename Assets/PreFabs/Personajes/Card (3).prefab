@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4484372519985425977}
   - component: {fileID: 2511890102399138645}
   - component: {fileID: 3963610786144604989}
+  - component: {fileID: 5631773393097187791}
   m_Layer: 5
   m_Name: Card (3)
   m_TagString: Untagged
@@ -92,3 +93,35 @@ MonoBehaviour:
   maxDragDistanceHorizontal: 200
   maxDragDistanceVertical: 100
   maxRotation: 10
+--- !u!114 &5631773393097187791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7430765980573379096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef3b8013b0f87848a4322214234418b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: Quevedo
+  cardTexts:
+  - aasdasd
+  - bbbbbbbbbbbbbb
+  leftOptions:
+  - no
+  - tal ves
+  rightOptions:
+  - si
+  - creo que si
+  responsesFeLeft: 0000000003000000
+  responsesFeRight: 05000000feffffff
+  responsesPuebloLeft: fcffffff00000000
+  responsesPuebloRight: 0000000003000000
+  responsesMilitarLeft: 0000000000000000
+  responsesMilitarRight: ffffffff00000000
+  responsesComidaLeft: 0000000000000000
+  responsesComidaRight: 04000000ffffffff
+  DineroLeft: 000000009cffffff
+  DineroRight: c800000000000000
