@@ -9,11 +9,10 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
     public float maxDragDistanceVertical = 100f;
     public float maxRotation = 10f;
 
-    //private Renderer cardRenderer;
 
     private void Awake()
     {
-        //cardRenderer = GetComponent<Renderer>();
+        
         rectTransform = GetComponent<RectTransform>();
         originalPosition = rectTransform.anchoredPosition;
 
@@ -30,28 +29,30 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
         float rotationAngle = CalculateRotation(newPosition.x);
         rectTransform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
 
-        //CheckForLightEffect(newPosition.x); 
+        
     }
 
-        // Restablecer posición y rotación
+    // Restablecer posición y rotación
     public void OnEndDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition = originalPosition;
-        rectTransform.localRotation = Quaternion.identity;
+        if (Mathf.Abs(rectTransform.anchoredPosition.x) >= maxDragDistanceHorizontal)
+        {
+            bool nextCard = rectTransform.anchoredPosition.x > 0;
+            FindObjectOfType<CardManager>().ChangeCard(nextCard);
+        }
+        else
+        {
+            // Restablecer posición y rotación
+            rectTransform.anchoredPosition = originalPosition;
+            rectTransform.localRotation = Quaternion.identity;
+        }
     }
+
 
     private float CalculateRotation(float xPosition)
     {
         return (-xPosition / maxDragDistanceHorizontal) * maxRotation;
     }
 
-    //private void CheckForLightEffect(float xPosition)
-    //{
-    //    // Calcula la intensidad de la luz basada en la posición
-    //    float lightIntensity = Mathf.Abs(xPosition) / maxDragDistanceHorizontal;
-    //    lightIntensity = Mathf.Clamp(lightIntensity, 0, 1);
-
-    //    // Asigna la intensidad al shader
-    //    cardRenderer.material.SetFloat("_LightIntensity", lightIntensity);
-    //}
+   
 }
