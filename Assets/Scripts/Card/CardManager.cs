@@ -83,24 +83,24 @@ public class CardManager : MonoBehaviour
         currentCard = Instantiate(cards[currentCardIndex]);
         currentCard.transform.SetParent(canvas.transform, false); // Establece el Canvas como padre
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
+        DisplayRandomCardText();
+    }
+
+    public void DisplayRandomCardText()
+    {
+        CardData cardData = currentCard.GetComponent<CardData>();
+        int randomIndex = Random.Range(0, cardData.cardTexts.Length);
+        Debug.Log(randomIndex);
+        UpdateCardUI(randomIndex);
     }
 
     public void UpdateCardUI(int index)
     {
         CardData cardData = currentCard.GetComponent<CardData>();
-
-        if (index < 0 || index >= cardData.cardTexts.Length)
-        {
-            Debug.LogError("Index out of range!");
-            return;
-        }
-
-        
+        NameTextMesh.text = cardData.cardName;
         cardTextMesh.text = cardData.cardTexts[index];
         leftOptionTextMesh.text = cardData.leftOptions[index];
         rightOptionTextMesh.text = cardData.rightOptions[index];
-
-  
     }
 
 }
