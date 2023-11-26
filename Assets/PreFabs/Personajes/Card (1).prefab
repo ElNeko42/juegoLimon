@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 850, y: 850}
+  m_SizeDelta: {x: 452, y: 452}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7181817533704833580
 CanvasRenderer:
@@ -108,6 +108,9 @@ MonoBehaviour:
   cardName: CR7
   cardTexts:
   - aasdasd
+  - bbbbbbbbbbbbbb
+  - bbbbbbbbbbbbbb
+  - bbbbbbbbbbbbbb
   - bbbbbbbbbbbbbb
   leftOptions:
   - no

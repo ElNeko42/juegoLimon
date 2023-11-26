@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CardManager : MonoBehaviour
 {
-    public GameObject[] cards; // Array para almacenar los prefabs de las cartas
-    private GameObject currentCard; // La carta actual en la escena
-    private GameObject LastcurrentCard; // la carta anterior
-    private int currentCardIndex = 0; // Índice de la carta actual
-    private Canvas canvas; // Referencia al Canvas
+    [Header("Configuración de Cartas")]
+    public GameObject[] cards; 
+    private GameObject currentCard; 
+    private GameObject LastcurrentCard; 
+    private int currentCardIndex = 0;
+    private Canvas canvas; 
+
+    [Header("Textos")]
+    public TextMeshProUGUI NameTextMesh;
+    public TextMeshProUGUI cardTextMesh; 
+    public TextMeshProUGUI leftOptionTextMesh; 
+    public TextMeshProUGUI rightOptionTextMesh; 
 
     private void Awake()
     {
@@ -72,7 +80,23 @@ public class CardManager : MonoBehaviour
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
     }
 
+    public void UpdateCardUI(int index)
+    {
+        CardData cardData = currentCard.GetComponent<CardData>();
 
+        if (index < 0 || index >= cardData.cardTexts.Length)
+        {
+            Debug.LogError("Index out of range!");
+            return;
+        }
+
+        
+        cardTextMesh.text = cardData.cardTexts[index];
+        leftOptionTextMesh.text = cardData.leftOptions[index];
+        rightOptionTextMesh.text = cardData.rightOptions[index];
+
+  
+    }
 
 }
 
