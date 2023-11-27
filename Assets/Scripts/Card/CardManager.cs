@@ -17,6 +17,11 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI cardTextMesh; 
     public TextMeshProUGUI leftOptionTextMesh; 
     public TextMeshProUGUI rightOptionTextMesh;
+    public TextMeshProUGUI feTextMesh;
+    public TextMeshProUGUI militarTextMesh;
+    public TextMeshProUGUI puebloTextMesh;
+    public TextMeshProUGUI comidaTextMesh;
+    public TextMeshProUGUI dineroTextMesh;
 
     int textIndex = 0;
 
@@ -45,8 +50,6 @@ public class CardManager : MonoBehaviour
             currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             CardData cardData = currentCard.GetComponent<CardData>();
-            Debug.Log("Card Name: " + cardData.cardName);
-            Debug.Log("Card Texts: " + cardData.cardTexts[0]);
             NameTextMesh.text = cardData.cardName;
             int randomIndexText = Random.Range(0, cardData.cardTexts.Length);
             cardTextMesh.text = cardData.cardTexts[randomIndexText];
@@ -60,7 +63,7 @@ public class CardManager : MonoBehaviour
     {
         if (currentCard != null)
         {
-            CardEffect(nextCard);
+           
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             Destroy(currentCard); // Destruye la carta actual
         }
@@ -87,13 +90,14 @@ public class CardManager : MonoBehaviour
         currentCard.transform.SetParent(canvas.transform, false); // Establece el Canvas como padre
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
         DisplayRandomCardText();
+        CardEffect(nextCard);
     }
 
     public void DisplayRandomCardText()
     {
         CardData cardData = currentCard.GetComponent<CardData>();
         textIndex = Random.Range(0, cardData.cardTexts.Length);
-        Debug.Log(textIndex);
+        
         UpdateCardUI(textIndex);
     }
 
@@ -106,38 +110,39 @@ public class CardManager : MonoBehaviour
         rightOptionTextMesh.text = cardData.rightOptions[index];
     }
 
-    void CardEffect(bool rightOptionChosen)
+    public void CardEffect(bool optionChosen)
     {
         if (currentCard != null)
         {
-            CardData card = currentCard.GetComponent<CardData>();
-            int faithCard;
-            int knowledgeCard;
-            int strengthCard;
-            int lemonCard;
+            CardData cardData = currentCard.GetComponent<CardData>();
 
-            if (rightOptionChosen)
-            {
-                faithCard = currentCard.GetComponent<CardData>().responsesFeRight[textIndex];
-                knowledgeCard = currentCard.GetComponent<CardData>().responsesPuebloRight[textIndex];
-                strengthCard = currentCard.GetComponent<CardData>().responsesMilitarRight[textIndex];
-                lemonCard = currentCard.GetComponent<CardData>().DineroRight[textIndex];
+            // Calcula los cambios en función de la elección
+            int changeFe = optionChosen ? cardData.responsesFeRight[textIndex] : cardData.responsesFeLeft[textIndex];
+            int changeMilitar = optionChosen ? cardData.responsesPuebloRight[textIndex] : cardData.responsesPuebloLeft[textIndex];
+            int changePueblo = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
+            int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
+            int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
 
-            } else
-            {
-                faithCard = currentCard.GetComponent<CardData>().responsesFeLeft[textIndex];
-                knowledgeCard = currentCard.GetComponent<CardData>().responsesPuebloLeft[textIndex];
-                strengthCard = currentCard.GetComponent<CardData>().responsesMilitarLeft[textIndex];
-                lemonCard = currentCard.GetComponent<CardData>().DineroLeft[textIndex];
-            }
+            // Actualiza las variables en GameManager
+            GameManager.instance.fe += changeFe;
+            GameManager.instance.militar += changeMilitar;
+            GameManager.instance.pueblo += changePueblo;
+            GameManager.instance.comida += changeComida;
 
-            GameController.instance.playerFaith += faithCard;
-            GameController.instance.playerKnowledge += knowledgeCard;
-            GameController.instance.playerStrength += strengthCard;
-            GameController.instance.playerLemon += lemonCard;
+            // Actualiza dinero asegurándose de que no exceda los límites establecidos
+            int newDineroValue = GameManager.instance.dinero + changeDinero;
+            GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
 
+            // Actualiza los textos
+            feTextMesh.text = GameManager.instance.fe.ToString();
+            militarTextMesh.text = GameManager.instance.militar.ToString();
+            puebloTextMesh.text = GameManager.instance.pueblo.ToString();
+            comidaTextMesh.text = GameManager.instance.comida.ToString();
+            dineroTextMesh.text = GameManager.instance.dinero.ToString();
         }
     }
+
+
 
 }
 

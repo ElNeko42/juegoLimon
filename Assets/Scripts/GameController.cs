@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public int playerKnowledge = 0;
     public int playerFaith = 0;
     public int playerLuck = 0;
-    public int playerLemon = 10000;
+   
 
     private void Awake()
     {
