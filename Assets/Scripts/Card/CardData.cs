@@ -19,4 +19,8 @@ public class CardData : MonoBehaviour
     public int[] responsesComidaRight;
     public int[] DineroLeft;
     public int[] DineroRight;
+
+    public CardType cardType;
+
+    public CardType CType { get => cardType; }
 }

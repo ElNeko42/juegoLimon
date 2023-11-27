@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum CardType { CHAR, EVENT, LUCK, BOSS }
+
 public class CardManager : MonoBehaviour
 {
     [Header("Configuración de Cartas")]
@@ -123,35 +125,87 @@ public class CardManager : MonoBehaviour
         {
             CardData cardData = currentCard.GetComponent<CardData>();
 
-            // Calcula los cambios en función de la elección
-            int changeFe = optionChosen ? cardData.responsesFeRight[textIndex] : cardData.responsesFeLeft[textIndex];
-            int changeMilitar = optionChosen ? cardData.responsesPuebloRight[textIndex] : cardData.responsesPuebloLeft[textIndex];
-            int changePueblo = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
-            int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
-            int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
-
-            // Actualiza las variables en GameManager
-            GameManager.instance.fe += changeFe;
-            GameManager.instance.militar += changeMilitar;
-            GameManager.instance.pueblo += changePueblo;
-            GameManager.instance.comida += changeComida;
-
-            // Actualiza dinero asegurándose de que no exceda los límites establecidos
-            int newDineroValue = GameManager.instance.dinero + changeDinero;
-            GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
-
-            // Actualiza los textos
-            feTextMesh.text = GameManager.instance.fe.ToString();
-            militarTextMesh.text = GameManager.instance.militar.ToString();
-            puebloTextMesh.text = GameManager.instance.pueblo.ToString();
-            comidaTextMesh.text = GameManager.instance.comida.ToString();
-            dineroTextMesh.text = GameManager.instance.dinero.ToString();
+            switch (cardData.CType)
+            {
+                case CardType.CHAR:
+                    CardEffectChar(optionChosen, cardData);
+                    break;
+                case CardType.EVENT:
+                    CardEffectEvent(optionChosen, cardData);
+                    break;
+                case CardType.LUCK:
+                    CardEffectLuck(optionChosen, cardData);
+                    break;
+                case CardType.BOSS:
+                    CardEffectBoss(optionChosen, cardData);
+                    break;
+                    
+            }     
         }
     }
 
-    void OnEnable()
+    void CardEffectChar(bool optionChosen, CardData cardData)
     {
-        DragDropScript.OnCardDrag += UpdateOptionVisibility;
+        // Calcula los cambios en función de la elección
+        int changeFe = optionChosen ? cardData.responsesFeRight[textIndex] : cardData.responsesFeLeft[textIndex];
+        int changeMilitar = optionChosen ? cardData.responsesPuebloRight[textIndex] : cardData.responsesPuebloLeft[textIndex];
+        int changePueblo = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
+        int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
+        int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
+
+        // Actualiza las variables en GameManager
+        GameManager.instance.fe += changeFe;
+        GameManager.instance.militar += changeMilitar;
+        GameManager.instance.pueblo += changePueblo;
+        GameManager.instance.comida += changeComida;
+
+        // Actualiza dinero asegurándose de que no exceda los límites establecidos
+        int newDineroValue = GameManager.instance.dinero + changeDinero;
+        GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
+
+        // Actualiza los textos
+        feTextMesh.text = GameManager.instance.fe.ToString();
+        militarTextMesh.text = GameManager.instance.militar.ToString();
+        puebloTextMesh.text = GameManager.instance.pueblo.ToString();
+        comidaTextMesh.text = GameManager.instance.comida.ToString();
+        dineroTextMesh.text = GameManager.instance.dinero.ToString();
+    }
+
+    void CardEffectEvent(bool optionChosen, CardData cardData)
+    {
+        StartCoroutine(DiceActionCoroutine(optionChosen, cardData));
+    }
+
+    IEnumerator DiceActionCoroutine(bool optionChosen, CardData cardData)
+    {
+        int counter = 7;
+        while (counter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            counter--;
+        }
+        if (optionChosen)
+        {
+            //GameOver
+        }
+        else
+        {
+            ShowDiceResult();
+        }
+    }
+
+    void ShowDiceResult()
+    {
+
+    }
+
+    void CardEffectLuck(bool optionChosen, CardData cardData)
+    {
+
+    }
+    void CardEffectBoss(bool optionChosen, CardData cardData)
+    {
+
     }
 
     void OnDisable()
@@ -160,7 +214,7 @@ public class CardManager : MonoBehaviour
     }
     public void UpdateOptionVisibility(float positionX)
     {
-        float threshold = 180.0f; 
+        float threshold = 180.0f;
         leftOptionTextMesh.alpha = positionX < -threshold ? 1.0f : 0.0f;
         rightOptionTextMesh.alpha = positionX > threshold ? 1.0f : 0.0f;
     }
@@ -171,5 +225,9 @@ public class CardManager : MonoBehaviour
         rightOptionTextMesh.alpha = 0.0f;
     }
 
+    void OnEnable()
+    {
+        DragDropScript.OnCardDrag += UpdateOptionVisibility;
+    }
 }
 

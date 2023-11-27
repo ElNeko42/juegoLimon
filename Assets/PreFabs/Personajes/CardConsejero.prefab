@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4804501462590323691}
   - component: {fileID: 3127339863307370813}
   m_Layer: 5
-  m_Name: Card
+  m_Name: CardConsejero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba24cb7170828bc49a48cc6ced5ce702, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7793acc332d632c4ea01bc25c5892acf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -110,19 +110,38 @@ MonoBehaviour:
   - "Su majestad, nuestros efectivos han quedado demasiado reducidos tras la \xFAltima
     batalla."
   - 'Uno de nuestros escuadrones ha robado en una Iglesia. '
+  - 'Debemos aumentar el presupuesto en armamento.  '
+  - "Desertores del reino vecino quieren alistarse en el ej\xE9rcito. "
+  - "Uno de nuestros batallones est\xE1 lleno de vagos. "
+  - "Hemos conseguido requisar un cargamento armament\xEDstico enemigo, \xBFqu\xE9
+    hacemos?"
+  - "No hemos conseguido muchas incorporaciones al ej\xE9rcito \xFAltimamente. "
+  - "Si pudieras ser un le\xF3n o un pato, \xBFqu\xE9 escoger\xEDas?"
   leftOptions:
   - Debemos hacer lo posible para recuperar efectivos (+2 fuerza, -1k limones)
   - 'Espero que reciban un severo castigo (-1 fuerza, +1 fe) '
+  - 'Aumentar presupuesto (+2 fuerza, -2k limones) '
+  - "Dejad que se alisten (+1 fuerza, -2 sabidur\xEDa) "
+  - "Deben abandonar el ej\xE9rcito (-1 fuerza, +1 sabidur\xEDa)  "
+  - Nos lo quedamos (+2 fuerza)
+  - 'Aniram al a etatsila (+3 fuerza, -4k limones) '
+  - "Un le\xF3n (+2 fuerza, -1 fe, -1 sabidur\xEDa) "
   rightOptions:
   - "Deben aguantar as\xED durante un tiempo (-1 fuerza)"
   - "\u2026 Lleven los objetos de valor a palacio (-3 fe, +5k limones) "
-  responsesFeLeft: 0000000001000000
-  responsesFeRight: 01000000fdffffff
-  responsesPuebloLeft: fcffffff00000000
-  responsesPuebloRight: 0000000003000000
-  responsesMilitarLeft: 02000000ffffffff
-  responsesMilitarRight: ffffffff00000000
-  responsesComidaLeft: 0000000000000000
-  responsesComidaRight: 0000000000000000
-  DineroLeft: 18fcffff00000000
-  DineroRight: 0000000088130000
+  - 'Hay que aguantar con lo que tenemos (-2 fuerza, +1k limones) '
+  - "Debemos encarcelarlos (+1 sabidur\xEDa) "
+  - "Con un entrenamiento especial espabilar\xE1n (+2 fuerza, -500 limones)"
+  - "Lo desguazamos y obtenemos m\xE1s recursos (+2k limones) "
+  - "Pos seguiremos igu\xE1 (-2 fuerza, 2k limones)"
+  - "Un pato (+2 sabidur\xEDa, -1 fe, -1 fuerza)"
+  responsesFeLeft: 00000000010000000000000000000000000000000000000000000000ffffffff
+  responsesFeRight: 01000000fdffffff0000000000000000000000000000000000000000ffffffff
+  responsesPuebloLeft: 000000000000000000000000feffffff010000000000000000000000ffffffff
+  responsesPuebloRight: 0000000000000000000000000100000000000000000000000000000002000000
+  responsesMilitarLeft: 02000000ffffffff0200000001000000ffffffff020000000300000002000000
+  responsesMilitarRight: ffffffff00000000feffffff000000000200000000000000feffffffffffffff
+  responsesComidaLeft: 0000000000000000000000000000000000000000000000000000000000000000
+  responsesComidaRight: 0000000000000000000000000000000000000000000000000000000000000000
+  DineroLeft: 18fcffff0000000030f8ffff00000000000000000000000060f0ffff00000000
+  DineroRight: 0000000088130000e8030000000000000cfeffffd0070000d007000000000000
