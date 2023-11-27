@@ -22,8 +22,16 @@ public class CardData : MonoBehaviour
     [Header("Tipo de Cartas")]
     public CardType cardType;
     public CardType CType { get => cardType; }
-    [Header("Accion dados")]
+    public enum Tipo
+    {
+        Fe = 1,
+        Fuerza = 2,
+        Conocimiento = 3
+    }
 
+    [Header("Accion dados")]
+    public Tipo[] tipoLeft;
+    public Tipo[] tipoRight;
     public int[] accionLeft;
     public int[] accionRight;
 }

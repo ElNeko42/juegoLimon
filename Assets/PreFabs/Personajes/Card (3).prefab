@@ -125,3 +125,8 @@ MonoBehaviour:
   responsesComidaRight: 04000000ffffffff
   DineroLeft: 000000009cffffff
   DineroRight: c800000000000000
+  cardType: 0
+  tipoLeft: 
+  tipoRight: 
+  accionLeft: 
+  accionRight: 
