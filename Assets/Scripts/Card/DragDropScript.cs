@@ -9,6 +9,9 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
     public float maxDragDistanceVertical = 100f;
     public float maxRotation = 10f;
 
+    public delegate void DragAction(float positionX);
+    public static event DragAction OnCardDrag;
+
 
     private void Awake()
     {
@@ -29,7 +32,14 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
         float rotationAngle = CalculateRotation(newPosition.x);
         rectTransform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
 
-        
+        CardManager cardManager = FindObjectOfType<CardManager>();
+        if (cardManager != null)
+        {
+            cardManager.UpdateOptionVisibility(rectTransform.anchoredPosition.x);
+        }
+        OnCardDrag?.Invoke(rectTransform.anchoredPosition.x);
+
+
     }
 
     // Restablecer posición y rotación
@@ -38,7 +48,7 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
         if (Mathf.Abs(rectTransform.anchoredPosition.x) >= maxDragDistanceHorizontal)
         {
             bool nextCard = rectTransform.anchoredPosition.x > 0;
-           // Debug.Log(nextCard); 
+            Debug.Log(nextCard); 
             FindObjectOfType<CardManager>().ChangeCard(nextCard);
         }
         else
@@ -46,6 +56,8 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
             // Restablecer posición y rotación
             rectTransform.anchoredPosition = originalPosition;
             rectTransform.localRotation = Quaternion.identity;
+            FindObjectOfType<CardManager>().MakeOptionsInvisible();
+            ;
         }
     }
 

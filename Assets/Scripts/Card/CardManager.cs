@@ -55,6 +55,8 @@ public class CardManager : MonoBehaviour
             cardTextMesh.text = cardData.cardTexts[randomIndexText];
             leftOptionTextMesh.text = cardData.leftOptions[randomIndexText];
             rightOptionTextMesh.text = cardData.rightOptions[randomIndexText];
+            MakeOptionsInvisible();
+
         }
     }
 
@@ -91,6 +93,8 @@ public class CardManager : MonoBehaviour
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
         DisplayRandomCardText();
         CardEffect(nextCard);
+        MakeOptionsInvisible();
+
     }
 
     public void DisplayRandomCardText()
@@ -142,7 +146,27 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        DragDropScript.OnCardDrag += UpdateOptionVisibility;
+    }
 
+    void OnDisable()
+    {
+        DragDropScript.OnCardDrag -= UpdateOptionVisibility;
+    }
+    public void UpdateOptionVisibility(float positionX)
+    {
+        float threshold = 180.0f; 
+        leftOptionTextMesh.alpha = positionX < -threshold ? 1.0f : 0.0f;
+        rightOptionTextMesh.alpha = positionX > threshold ? 1.0f : 0.0f;
+    }
+
+    public void MakeOptionsInvisible()
+    {
+        leftOptionTextMesh.alpha = 0.0f;
+        rightOptionTextMesh.alpha = 0.0f;
+    }
 
 }
 
