@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int pueblo = 5;
     public int comida = 5;
     public int dinero = 1000;
+    public int ano = 0;
 
 
     private void Awake()

@@ -22,6 +22,7 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI puebloTextMesh;
     public TextMeshProUGUI comidaTextMesh;
     public TextMeshProUGUI dineroTextMesh;
+    public TextMeshProUGUI anoTextMesh;
 
     int textIndex = 0;
 
@@ -94,6 +95,8 @@ public class CardManager : MonoBehaviour
         DisplayRandomCardText();
         CardEffect(nextCard);
         MakeOptionsInvisible();
+        GameManager.instance.ano++;
+        anoTextMesh.text = "AÑO: "+ GameManager.instance.ano.ToString();
 
     }
 
