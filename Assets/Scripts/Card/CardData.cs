@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Tipo
+{
+    Fe = 1,
+    Fuerza = 2,
+    Conocimiento = 3
+}
+
 public class CardData : MonoBehaviour
 {
     [Header("Datos Personaje")]
@@ -22,12 +29,9 @@ public class CardData : MonoBehaviour
     [Header("Tipo de Cartas")]
     public CardType cardType;
     public CardType CType { get => cardType; }
-    public enum Tipo
-    {
-        Fe = 1,
-        Fuerza = 2,
-        Conocimiento = 3
-    }
+
+    public Tipo statType;
+    public Tipo SType { get => statType; }
 
     [Header("Accion dados")]
     public Tipo[] tipoLeft;

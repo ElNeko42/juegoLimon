@@ -13,6 +13,7 @@ public class CardManager : MonoBehaviour
     private GameObject LastcurrentCard; 
     private int currentCardIndex = 0;
     private Canvas canvas; 
+    public GameObject dicePanel;
 
     [Header("Textos")]
     public TextMeshProUGUI NameTextMesh;
@@ -27,10 +28,11 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI anoTextMesh;
 
     int textIndex = 0;
+    bool diceUsed = false;
 
     private void Awake()
     {
-        canvas = FindObjectOfType<Canvas>();
+        canvas = FindObjectsOfType<Canvas>()[0];
     }
 
     private void Start()
@@ -68,7 +70,7 @@ public class CardManager : MonoBehaviour
     {
         if (currentCard != null)
         {
-           
+            CardEffect(nextCard);
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             Destroy(currentCard); // Destruye la carta actual
         }
@@ -95,7 +97,6 @@ public class CardManager : MonoBehaviour
         currentCard.transform.SetParent(canvas.transform, false); // Establece el Canvas como padre
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
         DisplayRandomCardText();
-        CardEffect(nextCard);
         MakeOptionsInvisible();
         GameManager.instance.ano++;
         anoTextMesh.text = "AÑO: "+ GameManager.instance.ano.ToString();
@@ -173,30 +174,71 @@ public class CardManager : MonoBehaviour
 
     void CardEffectEvent(bool optionChosen, CardData cardData)
     {
-        StartCoroutine(DiceActionCoroutine(optionChosen, cardData));
-    }
-
-    IEnumerator DiceActionCoroutine(bool optionChosen, CardData cardData)
-    {
-        int counter = 7;
-        while (counter > 0)
+        if (!optionChosen)
         {
-            yield return new WaitForSeconds(1);
-            counter--;
-        }
-        if (optionChosen)
+            string statText = "";
+            string statValue = "";
+            Debug.Log("Carta es nula: " + cardData==null);
+            switch (cardData.SType)
+            {
+                case (Tipo.Fe):
+                    statText = Tipo.Fe.ToString();
+                    statValue = GameManager.instance.fe.ToString(); 
+                    break;
+                case (Tipo.Conocimiento):
+                    statText = Tipo.Conocimiento.ToString();
+                    statValue = GameManager.instance.pueblo.ToString();
+                    break;
+                case (Tipo.Fuerza):
+                    statText = Tipo.Fuerza.ToString();
+                    statValue = GameManager.instance.militar.ToString();
+                    break;
+            }
+            DicePanel panel = dicePanel.GetComponent<DicePanel>();
+            panel.ShowPannel();
+            panel.statText.text = statText;
+            panel.statValue.text = statValue;
+            StartCoroutine(DiceActionCoroutine());
+           
+        } else
         {
             //GameOver
         }
-        else
+    }
+
+    IEnumerator DiceActionCoroutine()
+    {
+
+        while (dicePanel.gameObject.activeSelf)
         {
-            ShowDiceResult();
+            yield return null;
+
         }
+        if (!dicePanel.gameObject.activeSelf)
+        {
+            cardTextMesh.gameObject.SetActive(true);
+            leftOptionTextMesh.gameObject.SetActive(true);
+            rightOptionTextMesh.gameObject.SetActive(true);
+        } else
+        {
+            cardTextMesh.gameObject.SetActive(false);
+            leftOptionTextMesh.gameObject.SetActive(false);
+            rightOptionTextMesh.gameObject.SetActive(false);
+        }
+        
+        //if (!diceUsed)
+        //{
+        //    diceUsed = true;
+        //    ShowDiceResult();
+        //} else
+        //{
+
+        //}
     }
 
     void ShowDiceResult()
     {
-
+        
     }
 
     void CardEffectLuck(bool optionChosen, CardData cardData)

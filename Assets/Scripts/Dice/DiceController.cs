@@ -9,6 +9,9 @@ public class DiceController : MonoBehaviour
     private Image diceImage;
     private Animator animator;
 
+    public bool isDiceRolled = false;
+    int diceValue = -1;
+
     void Start()
     {
         diceImage = GetComponent<Image>();
@@ -17,15 +20,23 @@ public class DiceController : MonoBehaviour
 
     public void RollDice()
     {
-        animator.SetTrigger("roll"); // Inicia la animación de lanzamiento
-        StartCoroutine(SetDiceResult());
+        if (!isDiceRolled)
+        {
+            animator.SetTrigger("roll"); // Inicia la animación de lanzamiento
+            StartCoroutine(SetDiceResult());
+        } 
     }
 
     IEnumerator SetDiceResult()
     {
         yield return new WaitForSeconds(1); // Espera a que la animación termine
-        int randomDiceSide = Random.Range(0, 11);
-        diceImage.sprite = diceSides[randomDiceSide];
+        diceValue = Random.Range(0, 12);
+        diceImage.sprite = diceSides[diceValue];
+        isDiceRolled = true;
+        DicePanel dicePanel = this.transform.parent.GetComponent<DicePanel>();
+        dicePanel.totalValue.gameObject.SetActive(true);
+        dicePanel.totalValue.text = (diceValue + int.Parse(dicePanel.statValue.text)).ToString();
+        dicePanel.aceptar.gameObject.SetActive(true);
     }
 }
 
