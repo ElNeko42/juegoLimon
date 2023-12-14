@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ todos los enum que este relacionados con las cartas ponerlos en este scrip
+ */
 public enum Tipo
 {
     Fe = 1,
     Fuerza = 2,
     Conocimiento = 3
 }
+
+public enum CardType { CHAR, EVENT, LUCK, BOSS }
+
+public enum CardLugar { ciudad, bosque, desierto, montaña} //ejemplo de localisaciones se pueden modificar segun el proyecto
+
 
 public class CardData : MonoBehaviour
 {
@@ -32,6 +39,9 @@ public class CardData : MonoBehaviour
 
     public Tipo statType;
     public Tipo SType { get => statType; }
+
+    public CardLugar lugarType;
+    public CardLugar LType { get => lugarType; }
 
     [Header("Accion dados")]
     public Tipo[] tipoLeft;

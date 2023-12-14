@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum CardType { CHAR, EVENT, LUCK, BOSS }
 
 public class CardManager : MonoBehaviour
 {
