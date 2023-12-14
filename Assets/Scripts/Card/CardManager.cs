@@ -19,9 +19,8 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI cardTextMesh; 
     public TextMeshProUGUI leftOptionTextMesh; 
     public TextMeshProUGUI rightOptionTextMesh;
-    public TextMeshProUGUI feTextMesh;
-    public TextMeshProUGUI militarTextMesh;
-    public TextMeshProUGUI puebloTextMesh;
+    public TextMeshProUGUI vidaTextMesh;
+    public TextMeshProUGUI manaTextMesh;
     public TextMeshProUGUI comidaTextMesh;
     public TextMeshProUGUI dineroTextMesh;
     public TextMeshProUGUI anoTextMesh;
@@ -148,15 +147,13 @@ public class CardManager : MonoBehaviour
     {
         // Calcula los cambios en función de la elección
         int changeFe = optionChosen ? cardData.responsesFeRight[textIndex] : cardData.responsesFeLeft[textIndex];
-        int changeMilitar = optionChosen ? cardData.responsesPuebloRight[textIndex] : cardData.responsesPuebloLeft[textIndex];
-        int changePueblo = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
+        int changeMana = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
         int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
         int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
 
         // Actualiza las variables en GameManager
-        GameManager.instance.fe += changeFe;
-        GameManager.instance.militar += changeMilitar;
-        GameManager.instance.pueblo += changePueblo;
+        GameManager.instance.vida += changeFe;
+        GameManager.instance.mana += changeMana;
         GameManager.instance.comida += changeComida;
 
         // Actualiza dinero asegurándose de que no exceda los límites establecidos
@@ -164,9 +161,8 @@ public class CardManager : MonoBehaviour
         GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
 
         // Actualiza los textos
-        feTextMesh.text = GameManager.instance.fe.ToString();
-        militarTextMesh.text = GameManager.instance.militar.ToString();
-        puebloTextMesh.text = GameManager.instance.pueblo.ToString();
+        vidaTextMesh.text = GameManager.instance.vida.ToString();
+        manaTextMesh.text = GameManager.instance.mana.ToString();
         comidaTextMesh.text = GameManager.instance.comida.ToString();
         dineroTextMesh.text = GameManager.instance.dinero.ToString();
     }
@@ -182,15 +178,15 @@ public class CardManager : MonoBehaviour
             {
                 case (Tipo.Fe):
                     statText = Tipo.Fe.ToString();
-                    statValue = GameManager.instance.fe.ToString(); 
+                    statValue = GameManager.instance.vida.ToString(); 
                     break;
                 case (Tipo.Conocimiento):
                     statText = Tipo.Conocimiento.ToString();
-                    statValue = GameManager.instance.pueblo.ToString();
+                    statValue = GameManager.instance.mana.ToString();
                     break;
                 case (Tipo.Fuerza):
                     statText = Tipo.Fuerza.ToString();
-                    statValue = GameManager.instance.militar.ToString();
+                    statValue = GameManager.instance.comida.ToString();
                     break;
             }
             DicePanel panel = dicePanel.GetComponent<DicePanel>();
