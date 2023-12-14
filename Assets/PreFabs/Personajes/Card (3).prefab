@@ -115,17 +115,13 @@ MonoBehaviour:
   rightOptions:
   - si
   - creo que si
-  responsesFeLeft: 0000000003000000
-  responsesFeRight: 05000000feffffff
-  responsesPuebloLeft: fcffffff00000000
-  responsesPuebloRight: 0000000003000000
-  responsesMilitarLeft: 0000000000000000
-  responsesMilitarRight: ffffffff00000000
-  responsesComidaLeft: 0000000000000000
-  responsesComidaRight: 04000000ffffffff
-  DineroLeft: 000000009cffffff
-  DineroRight: c800000000000000
+  responsesLeftSuccess: []
+  responsesLeftFail: []
+  responsesRightSuccess: []
+  responsesRightFail: []
   cardType: 0
+  statType: 0
+  lugarType: 0
   tipoLeft: 
   tipoRight: 
   accionLeft: 

@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public int playerKnowledge = 0;
     public int playerFaith = 0;
     public int playerLuck = 0;
-    
+    public int clase;
+
+
     // Start is called before the first frame update
     void Start()
     {

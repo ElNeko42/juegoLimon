@@ -68,7 +68,7 @@ public class CardManager : MonoBehaviour
     {
         if (currentCard != null)
         {
-            CardEffect(nextCard);
+            //CardEffect(nextCard);
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             Destroy(currentCard); // Destruye la carta actual
         }
@@ -118,132 +118,121 @@ public class CardManager : MonoBehaviour
         rightOptionTextMesh.text = cardData.rightOptions[index];
     }
 
-    public void CardEffect(bool optionChosen)
-    {
-        if (currentCard != null)
-        {
-            CardData cardData = currentCard.GetComponent<CardData>();
+    // TODO: hay que cambiar esta funciones con el nuevo planteamiento del juego 
 
-            switch (cardData.CType)
-            {
-                case CardType.CHAR:
-                    CardEffectChar(optionChosen, cardData);
-                    break;
-                case CardType.EVENT:
-                    CardEffectEvent(optionChosen, cardData);
-                    break;
-                case CardType.LUCK:
-                    CardEffectLuck(optionChosen, cardData);
-                    break;
-                case CardType.BOSS:
-                    CardEffectBoss(optionChosen, cardData);
-                    break;
-                    
-            }     
-        }
-    }
+    //public void CardEffect(bool optionChosen)
+    //{
+    //    if (currentCard != null)
+    //    {
+    //        CardData cardData = currentCard.GetComponent<CardData>();
 
-    void CardEffectChar(bool optionChosen, CardData cardData)
-    {
-        // Calcula los cambios en función de la elección
-        int changeFe = optionChosen ? cardData.responsesFeRight[textIndex] : cardData.responsesFeLeft[textIndex];
-        int changeMana = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
-        int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
-        int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
+    //        switch (cardData.CType)
+    //        {
+    //            case CardType.CHAR:
+    //                CardEffectChar(optionChosen, cardData);
+    //                break;
+    //            case CardType.EVENT:
+    //                CardEffectEvent(optionChosen, cardData);
+    //                break;
+    //            case CardType.LUCK:
+    //                CardEffectLuck(optionChosen, cardData);
+    //                break;
+    //            case CardType.BOSS:
+    //                CardEffectBoss(optionChosen, cardData);
+    //                break;
 
-        // Actualiza las variables en GameManager
-        GameManager.instance.vida += changeFe;
-        GameManager.instance.mana += changeMana;
-        GameManager.instance.comida += changeComida;
+    //        }     
+    //    }
+    //}
 
-        // Actualiza dinero asegurándose de que no exceda los límites establecidos
-        int newDineroValue = GameManager.instance.dinero + changeDinero;
-        GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
+    //void CardEffectChar(bool optionChosen, CardData cardData)
+    //{
+    //    // Calcula los cambios en función de la elección
+    //    int changeFe = optionChosen ? cardData.responsesVidasRight[textIndex] : cardData.responsesVidasLeft[textIndex];
+    //    int changeMana = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
+    //    int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
+    //    int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
 
-        // Actualiza los textos
-        vidaTextMesh.text = GameManager.instance.vida.ToString();
-        manaTextMesh.text = GameManager.instance.mana.ToString();
-        comidaTextMesh.text = GameManager.instance.comida.ToString();
-        dineroTextMesh.text = GameManager.instance.dinero.ToString();
-    }
+    //    // Actualiza las variables en GameManager
+    //    GameManager.instance.vida += changeFe;
+    //    GameManager.instance.mana += changeMana;
+    //    GameManager.instance.comida += changeComida;
 
-    void CardEffectEvent(bool optionChosen, CardData cardData)
-    {
-        if (!optionChosen)
-        {
-            string statText = "";
-            string statValue = "";
-            Debug.Log("Carta es nula: " + cardData==null);
-            switch (cardData.SType)
-            {
-                case (Tipo.Fe):
-                    statText = Tipo.Fe.ToString();
-                    statValue = GameManager.instance.vida.ToString(); 
-                    break;
-                case (Tipo.Conocimiento):
-                    statText = Tipo.Conocimiento.ToString();
-                    statValue = GameManager.instance.mana.ToString();
-                    break;
-                case (Tipo.Fuerza):
-                    statText = Tipo.Fuerza.ToString();
-                    statValue = GameManager.instance.comida.ToString();
-                    break;
-            }
-            DicePanel panel = dicePanel.GetComponent<DicePanel>();
-            panel.ShowPannel();
-            panel.statText.text = statText;
-            panel.statValue.text = statValue;
-            StartCoroutine(DiceActionCoroutine());
-           
-        } else
-        {
-            //GameOver
-        }
-    }
+    //    // Actualiza dinero asegurándose de que no exceda los límites establecidos
+    //    int newDineroValue = GameManager.instance.dinero + changeDinero;
+    //    GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
 
-    IEnumerator DiceActionCoroutine()
-    {
+    //    // Actualiza los textos
+    //    vidaTextMesh.text = GameManager.instance.vida.ToString();
+    //    manaTextMesh.text = GameManager.instance.mana.ToString();
+    //    comidaTextMesh.text = GameManager.instance.comida.ToString();
+    //    dineroTextMesh.text = GameManager.instance.dinero.ToString();
+    //}
 
-        while (dicePanel.gameObject.activeSelf)
-        {
-            yield return null;
+    //void CardEffectEvent(bool optionChosen, CardData cardData)
+    //{
+    //    if (!optionChosen)
+    //    {
+    //        string statText = "";
+    //        string statValue = "";
+    //        Debug.Log("Carta es nula: " + cardData==null);
+    //        switch (cardData.SType)
+    //        {
+    //            case (Tipo.Fe):
+    //                statText = Tipo.Fe.ToString();
+    //                statValue = GameManager.instance.vida.ToString(); 
+    //                break;
+    //            case (Tipo.Conocimiento):
+    //                statText = Tipo.Conocimiento.ToString();
+    //                statValue = GameManager.instance.mana.ToString();
+    //                break;
+    //            case (Tipo.Fuerza):
+    //                statText = Tipo.Fuerza.ToString();
+    //                statValue = GameManager.instance.comida.ToString();
+    //                break;
+    //        }
+    //        DicePanel panel = dicePanel.GetComponent<DicePanel>();
+    //        panel.ShowPannel();
+    //        panel.statText.text = statText;
+    //        panel.statValue.text = statValue;
+    //        StartCoroutine(DiceActionCoroutine());
 
-        }
-        if (!dicePanel.gameObject.activeSelf)
-        {
-            cardTextMesh.gameObject.SetActive(true);
-            leftOptionTextMesh.gameObject.SetActive(true);
-            rightOptionTextMesh.gameObject.SetActive(true);
-        } else
-        {
-            cardTextMesh.gameObject.SetActive(false);
-            leftOptionTextMesh.gameObject.SetActive(false);
-            rightOptionTextMesh.gameObject.SetActive(false);
-        }
-        
-        //if (!diceUsed)
-        //{
-        //    diceUsed = true;
-        //    ShowDiceResult();
-        //} else
-        //{
+    //    } else
+    //    {
+    //        //GameOver
+    //    }
+    //}
 
-        //}
-    }
+    //IEnumerator DiceActionCoroutine()
+    //{
 
-    void ShowDiceResult()
-    {
-        
-    }
+    //    while (dicePanel.gameObject.activeSelf)
+    //    {
+    //        yield return null;
 
-    void CardEffectLuck(bool optionChosen, CardData cardData)
-    {
+    //    }
+    //    if (!dicePanel.gameObject.activeSelf)
+    //    {
+    //        cardTextMesh.gameObject.SetActive(true);
+    //        leftOptionTextMesh.gameObject.SetActive(true);
+    //        rightOptionTextMesh.gameObject.SetActive(true);
+    //    } else
+    //    {
+    //        cardTextMesh.gameObject.SetActive(false);
+    //        leftOptionTextMesh.gameObject.SetActive(false);
+    //        rightOptionTextMesh.gameObject.SetActive(false);
+    //    }
 
-    }
-    void CardEffectBoss(bool optionChosen, CardData cardData)
-    {
+    //    //if (!diceUsed)
+    //    //{
+    //    //    diceUsed = true;
+    //    //    ShowDiceResult();
+    //    //} else
+    //    //{
 
-    }
+    //    //}
+    //}
+
 
     void OnDisable()
     {
