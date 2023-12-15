@@ -5,16 +5,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+
     public static GameController instance;
-    
-
-    //variables en desuso en esta clase se mueve a al script de Player antes de eliminar hay que ver donde se estaban usando
-    //public string playerName = string.Empty;
-    //public int playerStrength = 0;
-    //public int playerKnowledge = 0;
-    //public int playerFaith = 0;
-    //public int playerLuck = 0;
-
     private Class[] allClasses; // Array de todas las clases
     private int currentIndex = 0; // Índice actual
 
