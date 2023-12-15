@@ -64,7 +64,7 @@ public class CardManager : MonoBehaviour
     {
         if (currentCard != null)
         {
-            //CardEffect(nextCard);
+            CardEffect(nextCard);
             LastcurrentCard = currentCard; // Guarda la última carta antes de destruirla
             Destroy(currentCard); // Destruye la carta actual
         }
@@ -127,118 +127,118 @@ public class CardManager : MonoBehaviour
 
     // TODO: hay que cambiar esta funciones con el nuevo planteamiento del juego 
 
-    //public void CardEffect(bool optionChosen)
-    //{
-    //    if (currentCard != null)
-    //    {
-    //        CardData cardData = currentCard.GetComponent<CardData>();
+    public void CardEffect(bool optionChosen)
+    {
+        if (currentCard != null)
+        {
+            CardData cardData = currentCard.GetComponent<CardData>();
 
-    //        switch (cardData.CType)
-    //        {
-    //            case CardType.CHAR:
-    //                CardEffectChar(optionChosen, cardData);
-    //                break;
-    //            case CardType.EVENT:
-    //                CardEffectEvent(optionChosen, cardData);
-    //                break;
-    //            case CardType.LUCK:
-    //                CardEffectLuck(optionChosen, cardData);
-    //                break;
-    //            case CardType.BOSS:
-    //                CardEffectBoss(optionChosen, cardData);
-    //                break;
+            switch (cardData.cardType)
+            {
+                case CardType.CHAR:
+                    CardEffectChar(optionChosen, cardData);
+                    break;
+                case CardType.EVENT:
+                    CardEffectEvent(optionChosen, cardData);
+                    break;
+                //case CardType.LUCK:
+                //    CardEffectLuck(optionChosen, cardData);
+                //    break;
+                //case CardType.BOSS:
+                //    CardEffectBoss(optionChosen, cardData);
+                //    break;
 
-    //        }     
-    //    }
-    //}
+            }
+        }
+    }
 
-    //void CardEffectChar(bool optionChosen, CardData cardData)
-    //{
-    //    // Calcula los cambios en función de la elección
-    //    int changeFe = optionChosen ? cardData.responsesVidasRight[textIndex] : cardData.responsesVidasLeft[textIndex];
-    //    int changeMana = optionChosen ? cardData.responsesMilitarRight[textIndex] : cardData.responsesMilitarLeft[textIndex];
-    //    int changeComida = optionChosen ? cardData.responsesComidaRight[textIndex] : cardData.responsesComidaLeft[textIndex];
-    //    int changeDinero = optionChosen ? cardData.DineroRight[textIndex] : cardData.DineroLeft[textIndex];
+    void CardEffectChar(bool optionChosen, CardData cardData)
+    {
+            // Obtiene la estructura de respuesta correcta en función de la elección
+        CardResponse response = optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex];
+        GameManager gameManager = GameManager.instance;
+        // Actualiza las variables en GameManager con los valores de la respuesta
+        gameManager.player.playerVida += response.cambioVidas;
+        gameManager.player.playerMana += response.cambioMana;
+        gameManager.player.playerComida += response.cambioComida;
 
-    //    // Actualiza las variables en GameManager
-    //    GameManager.instance.vida += changeFe;
-    //    GameManager.instance.mana += changeMana;
-    //    GameManager.instance.comida += changeComida;
+        // Actualiza dinero asegurándose de que no exceda los límites establecidos
+        GameManager.instance.player.playerDinero = Mathf.Clamp(GameManager.instance.player.playerDinero + response.cambioDinero, -99999, 99999);
 
-    //    // Actualiza dinero asegurándose de que no exceda los límites establecidos
-    //    int newDineroValue = GameManager.instance.dinero + changeDinero;
-    //    GameManager.instance.dinero = Mathf.Clamp(newDineroValue, -99999, 99999);
+        // Actualiza los textos
+        gameManager.textControl.vidaTextMesh.text = GameManager.instance.player.playerVida.ToString();
+        gameManager.textControl.manaTextMesh.text = GameManager.instance.player.playerMana.ToString();
+        gameManager.textControl.comidaTextMesh.text = GameManager.instance.player.playerComida.ToString();
+        gameManager.textControl.dineroTextMesh.text = GameManager.instance.player.playerDinero.ToString();
+    }
 
-    //    // Actualiza los textos
-    //    vidaTextMesh.text = GameManager.instance.vida.ToString();
-    //    manaTextMesh.text = GameManager.instance.mana.ToString();
-    //    comidaTextMesh.text = GameManager.instance.comida.ToString();
-    //    dineroTextMesh.text = GameManager.instance.dinero.ToString();
-    //}
+    void CardEffectEvent(bool optionChosen, CardData cardData)
+    {
+        GameManager gameManager = GameManager.instance;
 
-    //void CardEffectEvent(bool optionChosen, CardData cardData)
-    //{
-    //    if (!optionChosen)
-    //    {
-    //        string statText = "";
-    //        string statValue = "";
-    //        Debug.Log("Carta es nula: " + cardData==null);
-    //        switch (cardData.SType)
-    //        {
-    //            case (Tipo.Fe):
-    //                statText = Tipo.Fe.ToString();
-    //                statValue = GameManager.instance.vida.ToString(); 
-    //                break;
-    //            case (Tipo.Conocimiento):
-    //                statText = Tipo.Conocimiento.ToString();
-    //                statValue = GameManager.instance.mana.ToString();
-    //                break;
-    //            case (Tipo.Fuerza):
-    //                statText = Tipo.Fuerza.ToString();
-    //                statValue = GameManager.instance.comida.ToString();
-    //                break;
-    //        }
-    //        DicePanel panel = dicePanel.GetComponent<DicePanel>();
-    //        panel.ShowPannel();
-    //        panel.statText.text = statText;
-    //        panel.statValue.text = statValue;
-    //        StartCoroutine(DiceActionCoroutine());
+        if (!optionChosen)
+        {
+            string statText = "";
+            string statValue = "";
+            Debug.Log("Carta es nula: " + cardData == null);
+            switch (cardData.statType)
+            {
+                case (Tipo.Fe):
+                    statText = Tipo.Fe.ToString();
+                    statValue = gameManager.player.playerVida.ToString();
+                    break;
+                case (Tipo.Conocimiento):
+                    statText = Tipo.Conocimiento.ToString();
+                    statValue = gameManager.player.playerMana.ToString();
+                    break;
+                case (Tipo.Fuerza):
+                    statText = Tipo.Fuerza.ToString();
+                    statValue = gameManager.player.playerComida.ToString();
+                    break;
+            }
+            DicePanel panel = dicePanel.GetComponent<DicePanel>();
+            panel.ShowPannel();
+            panel.statText.text = statText;
+            panel.statValue.text = statValue;
+            StartCoroutine(DiceActionCoroutine());
 
-    //    } else
-    //    {
-    //        //GameOver
-    //    }
-    //}
+        }
+        else
+        {
+            //GameOver
+        }
+    }
 
-    //IEnumerator DiceActionCoroutine()
-    //{
+    IEnumerator DiceActionCoroutine()
+    {
 
-    //    while (dicePanel.gameObject.activeSelf)
-    //    {
-    //        yield return null;
+        while (dicePanel.gameObject.activeSelf)
+        {
+            yield return null;
 
-    //    }
-    //    if (!dicePanel.gameObject.activeSelf)
-    //    {
-    //        cardTextMesh.gameObject.SetActive(true);
-    //        leftOptionTextMesh.gameObject.SetActive(true);
-    //        rightOptionTextMesh.gameObject.SetActive(true);
-    //    } else
-    //    {
-    //        cardTextMesh.gameObject.SetActive(false);
-    //        leftOptionTextMesh.gameObject.SetActive(false);
-    //        rightOptionTextMesh.gameObject.SetActive(false);
-    //    }
+        }
+        if (!dicePanel.gameObject.activeSelf)
+        {
+            cardTextMesh.gameObject.SetActive(true);
+            leftOptionTextMesh.gameObject.SetActive(true);
+            rightOptionTextMesh.gameObject.SetActive(true);
+        }
+        else
+        {
+            cardTextMesh.gameObject.SetActive(false);
+            leftOptionTextMesh.gameObject.SetActive(false);
+            rightOptionTextMesh.gameObject.SetActive(false);
+        }
 
-    //    //if (!diceUsed)
-    //    //{
-    //    //    diceUsed = true;
-    //    //    ShowDiceResult();
-    //    //} else
-    //    //{
+        //if (!diceUsed)
+        //{
+        //    diceUsed = true;
+        //    ShowDiceResult();
+        //} else
+        //{
 
-    //    //}
-    //}
+        //}
+    }
 
 
     void OnDisable()
