@@ -1554,6 +1554,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664900828}
   m_CullTransparentMesh: 1
+--- !u!1 &672787025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 672787027}
+  - component: {fileID: 672787026}
+  m_Layer: 0
+  m_Name: TextControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &672787026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672787025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fc7e098b455134aadacac5ec4a4b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreTextMesh: {fileID: 0}
+  nombreMenuTextMesh: {fileID: 0}
+  feTextMesh: {fileID: 0}
+  fuerzaTextMesh: {fileID: 0}
+  conocimientoTextMesh: {fileID: 0}
+  suerteTextMesh: {fileID: 0}
+  vidaTextMesh: {fileID: 1138116924}
+  manaTextMesh: {fileID: 238389111}
+  comidaTextMesh: {fileID: 1057148480}
+  dineroTextMesh: {fileID: 225924081}
+  diasTextMesh: {fileID: 778510194}
+--- !u!4 &672787027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672787025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1058680583}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778510192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,7 +1621,7 @@ GameObject:
   - component: {fileID: 778510195}
   - component: {fileID: 778510194}
   m_Layer: 5
-  m_Name: ano
+  m_Name: dias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1612,7 +1667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A\xD1O: 0"
+  m_text: 'DIAS: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2289,12 +2344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4983324ec672742b6097532d190d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fe: 5
-  militar: 5
-  pueblo: 5
-  comida: 5
-  dinero: 1000
-  ano: 0
+  rolPlayer: {fileID: 0}
+  player: {fileID: 1192462440}
+  textControl: {fileID: 672787026}
 --- !u!4 &1058680583
 Transform:
   m_ObjectHideFlags: 0
@@ -2306,7 +2358,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 672787027}
+  - {fileID: 1192462439}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2323,7 +2377,7 @@ GameObject:
   - component: {fileID: 1091559483}
   - component: {fileID: 1091559484}
   m_Layer: 0
-  m_Name: PlayerStatistics
+  m_Name: Interfaces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2341,11 +2395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67a1b4c018cc6345ab394f4ef78bd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Paco
-  playerStrength: 3
-  playerKnowledge: 2
-  playerFaith: 0
-  playerLuck: 10
+  claseTextMesh: {fileID: 0}
 --- !u!4 &1091559482
 Transform:
   m_ObjectHideFlags: 0
@@ -2379,6 +2429,11 @@ MonoBehaviour:
   fuerzaTextMesh: {fileID: 1604704322}
   conocimientoTextMesh: {fileID: 1565404639}
   suerteTextMesh: {fileID: 229781137}
+  vidaTextMesh: {fileID: 0}
+  manaTextMesh: {fileID: 0}
+  comidaTextMesh: {fileID: 0}
+  dineroTextMesh: {fileID: 0}
+  diasTextMesh: {fileID: 0}
 --- !u!114 &1091559484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,6 +3423,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181995026}
   m_CullTransparentMesh: 1
+--- !u!1001 &1192462438
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1058680583}
+    m_Modifications:
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28424796004001019, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: playerName
+      value: Manolo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: playerVida
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+--- !u!4 &1192462439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 28424796004001017, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+  m_PrefabInstance: {fileID: 1192462438}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192462440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+  m_PrefabInstance: {fileID: 1192462438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7436da6cfba08641a8cc76b63649f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235481548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,12 +4419,6 @@ MonoBehaviour:
   cardTextMesh: {fileID: 2086474431}
   leftOptionTextMesh: {fileID: 1235481550}
   rightOptionTextMesh: {fileID: 251659631}
-  feTextMesh: {fileID: 1138116924}
-  militarTextMesh: {fileID: 0}
-  puebloTextMesh: {fileID: 238389111}
-  comidaTextMesh: {fileID: 1057148480}
-  dineroTextMesh: {fileID: 225924081}
-  anoTextMesh: {fileID: 778510194}
 --- !u!4 &1703539582
 Transform:
   m_ObjectHideFlags: 0

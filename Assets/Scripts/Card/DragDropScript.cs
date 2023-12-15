@@ -48,7 +48,6 @@ public class DragDropScript : MonoBehaviour, IDragHandler, IEndDragHandler
         if (Mathf.Abs(rectTransform.anchoredPosition.x) >= maxDragDistanceHorizontal)
         {
             bool nextCard = rectTransform.anchoredPosition.x > 0;
-            Debug.Log(nextCard); 
             FindObjectOfType<CardManager>().ChangeCard(nextCard);
         }
         else

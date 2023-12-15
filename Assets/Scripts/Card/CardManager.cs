@@ -19,11 +19,7 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI cardTextMesh; 
     public TextMeshProUGUI leftOptionTextMesh; 
     public TextMeshProUGUI rightOptionTextMesh;
-    public TextMeshProUGUI vidaTextMesh;
-    public TextMeshProUGUI manaTextMesh;
-    public TextMeshProUGUI comidaTextMesh;
-    public TextMeshProUGUI dineroTextMesh;
-    public TextMeshProUGUI diasTextMesh;
+   
 
     int textIndex = 0;
     bool diceUsed = false;
@@ -96,8 +92,19 @@ public class CardManager : MonoBehaviour
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
         DisplayRandomCardText();
         MakeOptionsInvisible();
+        Debug.Log("prueba");
+        if (GameManager.instance == null)
+        {
+            Debug.LogError("GameManager instance is null");
+        }
+        else if (GameManager.instance.player == null)
+        {
+            Debug.LogError("GameManager player is null");
+        }
+        Debug.Log("dias: " + GameManager.instance.player.dias);
         GameManager.instance.player.dias++;
-        diasTextMesh.text = "dias: "+ GameManager.instance.player.dias.ToString();
+        Debug.Log("dias: " + GameManager.instance.player.dias);
+        GameManager.instance.textControl.diasTextMesh.text = "dias: "+ GameManager.instance.player.dias.ToString();
 
     }
 

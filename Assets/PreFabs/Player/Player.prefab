@@ -46,6 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   classType: 1
+  habilidades:
+    fuerza: 0
+    sabiduria: 0
+    fe: 0
+    suerte: 0
 --- !u!114 &2189449870915959955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
-  playerStrength: 0
-  playerKnowledge: 0
-  playerFaith: 0
-  playerLuck: 0
+  playerVida: 10
+  playerMana: 10
+  playerComida: 10
+  playerDinero: 10
+  dias: 0

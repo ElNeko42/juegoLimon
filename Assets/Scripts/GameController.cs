@@ -51,9 +51,8 @@ public class GameController : MonoBehaviour
     private void DisplayClassInfo()
     {
         
-        Class currentClass = allClasses[currentIndex];
-        Debug.Log("Clase Actual: " + currentClass.ToString());
-        claseTextMesh.text = currentClass.ToString();
-        // Aquí puedes actualizar la UI con la información de currentClass
+        //Class currentClass = allClasses[currentIndex];
+        //claseTextMesh.text = currentClass.ToString();
+       
     }
 }
