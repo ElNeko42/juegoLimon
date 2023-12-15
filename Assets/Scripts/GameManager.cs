@@ -5,12 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public RolPlayer rolPlayer;
+    public Player player;
 
-    public int vida = 5;
-    public int mana = 5;
-    public int comida = 5;
-    public int dinero = 1000;
-    public int ano = 0;
+   
 
 
     private void Awake()

@@ -14,12 +14,12 @@ public class TextControl : MonoBehaviour
 
     void Start()
     {
-        nombreTextMesh.text = GameController.instance.playerName;
-        nombreMenuTextMesh.text = GameController.instance.playerName;
-        feTextMesh.text ="Fe: "+ GameController.instance.playerFaith.ToString();
-        fuerzaTextMesh.text ="Fuerza: "+ GameController.instance.playerStrength.ToString();
-        conocimientoTextMesh.text ="Conocimiento: "+ GameController.instance.playerKnowledge.ToString();
-        suerteTextMesh.text ="Suerte: "+ GameController.instance.playerLuck.ToString();
+        nombreTextMesh.text = GameManager.instance.player.playerName;
+        nombreMenuTextMesh.text = GameManager.instance.player.playerName;
+        feTextMesh.text = "Fe: " + GameManager.instance.rolPlayer.habilidades.fe.ToString();
+        fuerzaTextMesh.text = "Fuerza: " + GameManager.instance.rolPlayer.habilidades.fuerza.ToString();
+        conocimientoTextMesh.text = "Conocimiento: " + GameManager.instance.rolPlayer.habilidades.sabiduria.ToString();
+        suerteTextMesh.text = "Suerte: " + GameManager.instance.rolPlayer.habilidades.suerte.ToString();
     }
 
 }

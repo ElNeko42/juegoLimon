@@ -5,11 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public string playerName = string.Empty;
-    public int playerStrength = 0;
-    public int playerKnowledge = 0;
-    public int playerFaith = 0;
-    public int playerLuck = 0;
-    public int clase;
+    public int playerVida = 0;
+    public int playerMana = 0;
+    public int playerComida = 0;
+    public int playerDinero = 0;
+ 
 
 
     // Start is called before the first frame update
