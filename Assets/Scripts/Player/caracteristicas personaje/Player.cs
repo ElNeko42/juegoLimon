@@ -11,17 +11,4 @@ public class Player : MonoBehaviour
     public int playerDinero = 0;
     public int dias = 0;
  
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
