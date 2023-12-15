@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int playerMana = 0;
     public int playerComida = 0;
     public int playerDinero = 0;
+    public int dias = 0;
  
 
 

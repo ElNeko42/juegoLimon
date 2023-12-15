@@ -23,7 +23,7 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI manaTextMesh;
     public TextMeshProUGUI comidaTextMesh;
     public TextMeshProUGUI dineroTextMesh;
-    public TextMeshProUGUI anoTextMesh;
+    public TextMeshProUGUI diasTextMesh;
 
     int textIndex = 0;
     bool diceUsed = false;
@@ -96,8 +96,8 @@ public class CardManager : MonoBehaviour
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
         DisplayRandomCardText();
         MakeOptionsInvisible();
-        GameManager.instance.ano++;
-        anoTextMesh.text = "AÑO: "+ GameManager.instance.ano.ToString();
+        GameManager.instance.player.dias++;
+        diasTextMesh.text = "dias: "+ GameManager.instance.player.dias.ToString();
 
     }
 

@@ -175,12 +175,12 @@ public class CharacterCreator : MonoBehaviour
 
     public void SetCharacterValues()
     {
-        GameController controller = GameController.instance;
-        controller.playerName = inputName.text;
-        controller.playerStrength = int.Parse(inputStrength.text);
-        controller.playerKnowledge = int.Parse(inputKnowledge.text);
-        controller.playerFaith = int.Parse(inputFaith.text);
-        controller.playerLuck = int.Parse(inputLuck.text);
+        GameManager controller = GameManager.instance;
+        controller.player.playerName = inputName.text;
+        controller.rolPlayer.habilidades.fuerza = int.Parse(inputStrength.text);
+        controller.rolPlayer.habilidades.sabiduria = int.Parse(inputKnowledge.text);
+        controller.rolPlayer.habilidades.fe = int.Parse(inputFaith.text);
+        controller.rolPlayer.habilidades.suerte = int.Parse(inputLuck.text);
         SceneManager.LoadScene("GameScene");
 
     }
