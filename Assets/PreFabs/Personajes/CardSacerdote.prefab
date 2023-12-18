@@ -115,13 +115,61 @@ MonoBehaviour:
   rightOptions:
   - si
   - creo que si
-  responsesFeLeft: 0000000003000000
-  responsesFeRight: 05000000feffffff
-  responsesPuebloLeft: fcffffff00000000
-  responsesPuebloRight: 0000000003000000
-  responsesMilitarLeft: 0000000000000000
-  responsesMilitarRight: ffffffff00000000
-  responsesComidaLeft: 0000000000000000
-  responsesComidaRight: 04000000ffffffff
-  DineroLeft: 000000009cffffff
-  DineroRight: c800000000000000
+  responsesLeftSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesLeftFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  cardType: 0
+  lugarType: 0
+  tipoLeft: 0000000000000000
+  tipoRight: 0000000000000000
+  accionLeft: 0000000000000000
+  accionRight: 0000000000000000

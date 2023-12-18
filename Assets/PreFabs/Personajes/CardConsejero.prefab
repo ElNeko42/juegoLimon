@@ -135,13 +135,205 @@ MonoBehaviour:
   - "Lo desguazamos y obtenemos m\xE1s recursos (+2k limones) "
   - "Pos seguiremos igu\xE1 (-2 fuerza, 2k limones)"
   - "Un pato (+2 sabidur\xEDa, -1 fe, -1 fuerza)"
-  responsesFeLeft: 00000000010000000000000000000000000000000000000000000000ffffffff
-  responsesFeRight: 01000000fdffffff0000000000000000000000000000000000000000ffffffff
-  responsesPuebloLeft: 000000000000000000000000feffffff010000000000000000000000ffffffff
-  responsesPuebloRight: 0000000000000000000000000100000000000000000000000000000002000000
-  responsesMilitarLeft: 02000000ffffffff0200000001000000ffffffff020000000300000002000000
-  responsesMilitarRight: ffffffff00000000feffffff000000000200000000000000feffffffffffffff
-  responsesComidaLeft: 0000000000000000000000000000000000000000000000000000000000000000
-  responsesComidaRight: 0000000000000000000000000000000000000000000000000000000000000000
-  DineroLeft: 18fcffff0000000030f8ffff00000000000000000000000060f0ffff00000000
-  DineroRight: 0000000088130000e8030000000000000cfeffffd0070000d007000000000000
+  responsesLeftSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesLeftFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  cardType: 0
+  lugarType: 0
+  tipoLeft: 0000000000000000000000000000000000000000000000000000000000000000
+  tipoRight: 0000000000000000000000000000000000000000000000000000000000000000
+  accionLeft: 0000000000000000000000000000000000000000000000000000000000000000
+  accionRight: 0000000000000000000000000000000000000000000000000000000000000000

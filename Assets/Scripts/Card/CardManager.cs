@@ -157,6 +157,15 @@ public class CardManager : MonoBehaviour
             // Obtiene la estructura de respuesta correcta en función de la elección
         CardResponse response = optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex];
         GameManager gameManager = GameManager.instance;
+        string statText = "5";
+        string statValue = "12";
+        DicePanel panel = dicePanel.GetComponent<DicePanel>();
+        panel.ShowPannel();
+        panel.statText.text = statText;
+        panel.statValue.text = statValue;
+        StartCoroutine(DiceActionCoroutine());
+
+
         // Actualiza las variables en GameManager con los valores de la respuesta
         gameManager.player.playerVida += response.cambioVidas;
         gameManager.player.playerMana += response.cambioMana;
@@ -181,21 +190,21 @@ public class CardManager : MonoBehaviour
             string statText = "";
             string statValue = "";
             Debug.Log("Carta es nula: " + cardData == null);
-            switch (cardData.statType)
-            {
-                case (Tipo.Fe):
-                    statText = Tipo.Fe.ToString();
-                    statValue = gameManager.player.playerVida.ToString();
-                    break;
-                case (Tipo.Conocimiento):
-                    statText = Tipo.Conocimiento.ToString();
-                    statValue = gameManager.player.playerMana.ToString();
-                    break;
-                case (Tipo.Fuerza):
-                    statText = Tipo.Fuerza.ToString();
-                    statValue = gameManager.player.playerComida.ToString();
-                    break;
-            }
+            //switch (cardData.statType)
+            //{
+            //    case (Tipo.Fe):
+            //        statText = Tipo.Fe.ToString();
+            //        statValue = gameManager.player.playerVida.ToString();
+            //        break;
+            //    case (Tipo.Conocimiento):
+            //        statText = Tipo.Conocimiento.ToString();
+            //        statValue = gameManager.player.playerMana.ToString();
+            //        break;
+            //    case (Tipo.Fuerza):
+            //        statText = Tipo.Fuerza.ToString();
+            //        statValue = gameManager.player.playerComida.ToString();
+            //        break;
+            //}
             DicePanel panel = dicePanel.GetComponent<DicePanel>();
             panel.ShowPannel();
             panel.statText.text = statText;

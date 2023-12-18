@@ -8,10 +8,9 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
     private Class[] allClasses; // Array de todas las clases
-    private int currentIndex = 0; // Índice actual
+    private int currentIndex = 0; // ï¿½ndice actual
 
     public TextMeshProUGUI claseTextMesh;
-
 
     private void Awake()
     {
@@ -27,8 +26,11 @@ public class GameController : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         allClasses = (Class[])System.Enum.GetValues(typeof(Class));
+        if(claseTextMesh != null)
+        {
         DisplayClassInfo();
         Debug.Log(allClasses.Length);
+        }
     }
 
 
@@ -47,12 +49,12 @@ public class GameController : MonoBehaviour
         DisplayClassInfo();
     }
 
-    // Mostrar información de la clase actual
+    // Mostrar informaciï¿½n de la clase actual
     private void DisplayClassInfo()
     {
         
-        //Class currentClass = allClasses[currentIndex];
-        //claseTextMesh.text = currentClass.ToString();
+        Class currentClass = allClasses[currentIndex];
+        claseTextMesh.text = currentClass.ToString();
        
     }
 }

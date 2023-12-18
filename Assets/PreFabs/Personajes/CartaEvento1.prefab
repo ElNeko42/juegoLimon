@@ -114,19 +114,37 @@ MonoBehaviour:
   - Atacar
   rightOptions:
   - No hacer nada
-  responsesFeLeft: 00000000
-  responsesFeRight: 00000000
-  responsesPuebloLeft: 00000000
-  responsesPuebloRight: 00000000
-  responsesMilitarLeft: 00000000
-  responsesMilitarRight: 00000000
-  responsesComidaLeft: 00000000
-  responsesComidaRight: 00000000
-  DineroLeft: 00000000
-  DineroRight: 00000000
+  responsesLeftSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesLeftFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
   cardType: 1
-  statType: 2
-  tipoLeft: 
-  tipoRight: 
-  accionLeft: 
-  accionRight: 
+  lugarType: 0
+  tipoLeft: 00000000
+  tipoRight: 00000000
+  accionLeft: 00000000
+  accionRight: 00000000

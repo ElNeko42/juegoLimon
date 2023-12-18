@@ -8,9 +8,16 @@ public class GameManager : MonoBehaviour
     public RolPlayer rolPlayer;
     public Player player;
     public TextControl textControl;
+    public DiceController diceController;
 
-   
 
+    void Start()
+    {
+        rolPlayer = FindObjectOfType<RolPlayer>();
+        player = FindObjectOfType<Player>();
+        textControl = FindObjectOfType<TextControl>();
+        diceController = FindObjectOfType<DiceController>();
+    }
 
     private void Awake()
     {

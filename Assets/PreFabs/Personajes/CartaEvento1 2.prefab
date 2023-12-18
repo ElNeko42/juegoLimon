@@ -127,14 +127,85 @@ MonoBehaviour:
   - No hacer nada
   - "No pinto nada all\xED"
   - Bof menuda pinta
-  responsesFeLeft: 000000000000000000000000
-  responsesFeRight: 000000000000000000000000
-  responsesPuebloLeft: 000000000000000000000000
-  responsesPuebloRight: 000000000000000000000000
-  responsesMilitarLeft: 000000000000000000000000
-  responsesMilitarRight: 000000000000000000000000
-  responsesComidaLeft: 000000000000000000000000
-  responsesComidaRight: 000000000000000000000000
-  DineroLeft: 000000000000000000000000
-  DineroRight: 000000000000000000000000
+  responsesLeftSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesLeftFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightSuccess:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  responsesRightFail:
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
+  - cambioVidas: 0
+    cambioMana: 0
+    cambioPueblo: 0
+    cambioMilitar: 0
+    cambioComida: 0
+    cambioDinero: 0
   cardType: 1
+  lugarType: 0
+  tipoLeft: 000000000000000000000000
+  tipoRight: 000000000000000000000000
+  accionLeft: 000000000000000000000000
+  accionRight: 000000000000000000000000

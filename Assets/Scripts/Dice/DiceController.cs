@@ -22,17 +22,24 @@ public class DiceController : MonoBehaviour
     {
         if (!isDiceRolled)
         {
-            animator.SetTrigger("roll"); // Inicia la animación de lanzamiento
+            animator.enabled = true;
             StartCoroutine(SetDiceResult());
         } 
     }
 
     IEnumerator SetDiceResult()
     {
-        yield return new WaitForSeconds(1); // Espera a que la animación termine
+        yield return new WaitForSeconds(1); // Espera a que la animacion termine
         diceValue = Random.Range(0, 12);
-        diceImage.sprite = diceSides[diceValue];
+        diceImage.sprite = diceSides[diceValue-1];
+        Debug.Log("dado "+diceValue);
+        Debug.Log("dado "+ diceImage.sprite);
         isDiceRolled = true;
+        animator.enabled = false;
+        Vector3 rotationEuler = transform.rotation.eulerAngles;
+        rotationEuler.z = 0;
+        transform.rotation = Quaternion.Euler(rotationEuler);
+
         DicePanel dicePanel = this.transform.parent.GetComponent<DicePanel>();
         dicePanel.totalValue.gameObject.SetActive(true);
         dicePanel.totalValue.text = (diceValue + int.Parse(dicePanel.statValue.text)).ToString();

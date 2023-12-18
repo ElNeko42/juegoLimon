@@ -40,12 +40,14 @@ public class CardData : MonoBehaviour
 
     [Header("Tipo de Cartas")]
     public CardType cardType;
-    public Tipo statType;
+   
     public CardLugar lugarType;
 
     [Header("Accion dados")]
+    //tipo de tirada
     public Tipo[] tipoLeft;
     public Tipo[] tipoRight;
+    //resultado que tienes que llegar o superar
     public int[] accionLeft; 
     public int[] accionRight;
 }
