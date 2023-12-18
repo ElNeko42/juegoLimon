@@ -7,19 +7,19 @@ using TMPro;
 public class CardManager : MonoBehaviour
 {
     [Header("Configuración de Cartas")]
-    public GameObject[] cards; 
-    private GameObject currentCard; 
-    private GameObject LastcurrentCard; 
+    public GameObject[] cards;
+    private GameObject currentCard;
+    private GameObject LastcurrentCard;
     private int currentCardIndex = 0;
-    private Canvas canvas; 
+    private Canvas canvas;
     public GameObject dicePanel;
 
     [Header("Textos")]
     public TextMeshProUGUI NameTextMesh;
-    public TextMeshProUGUI cardTextMesh; 
-    public TextMeshProUGUI leftOptionTextMesh; 
+    public TextMeshProUGUI cardTextMesh;
+    public TextMeshProUGUI leftOptionTextMesh;
     public TextMeshProUGUI rightOptionTextMesh;
-   
+
 
     int textIndex = 0;
     bool diceUsed = false;
@@ -104,7 +104,7 @@ public class CardManager : MonoBehaviour
         Debug.Log("dias: " + GameManager.instance.player.dias);
         GameManager.instance.player.dias++;
         Debug.Log("dias: " + GameManager.instance.player.dias);
-        GameManager.instance.textControl.diasTextMesh.text = "dias: "+ GameManager.instance.player.dias.ToString();
+        GameManager.instance.textControl.diasTextMesh.text = "dias: " + GameManager.instance.player.dias.ToString();
 
     }
 
@@ -112,7 +112,7 @@ public class CardManager : MonoBehaviour
     {
         CardData cardData = currentCard.GetComponent<CardData>();
         textIndex = Random.Range(0, cardData.cardTexts.Length);
-        
+
         UpdateCardUI(textIndex);
     }
 
@@ -141,12 +141,12 @@ public class CardManager : MonoBehaviour
                 case CardType.EVENT:
                     CardEffectEvent(optionChosen, cardData);
                     break;
-                //case CardType.LUCK:
-                //    CardEffectLuck(optionChosen, cardData);
-                //    break;
-                //case CardType.BOSS:
-                //    CardEffectBoss(optionChosen, cardData);
-                //    break;
+                    //case CardType.LUCK:
+                    //    CardEffectLuck(optionChosen, cardData);
+                    //    break;
+                    //case CardType.BOSS:
+                    //    CardEffectBoss(optionChosen, cardData);
+                    //    break;
 
             }
         }
@@ -154,7 +154,7 @@ public class CardManager : MonoBehaviour
 
     void CardEffectChar(bool optionChosen, CardData cardData)
     {
-            // Obtiene la estructura de respuesta correcta en función de la elección
+        // Obtiene la estructura de respuesta correcta en función de la elección
         CardResponse response = optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex];
         GameManager gameManager = GameManager.instance;
         string statText = "5";
@@ -163,6 +163,7 @@ public class CardManager : MonoBehaviour
         panel.ShowPannel();
         panel.statText.text = statText;
         panel.statValue.text = statValue;
+        panel.condicion.text = optionChosen ? "Para ganar, el total debe ser mayor a " + cardData.accionRight[textIndex].ToString() : "Para ganar, el total debe ser mayor a " + cardData.accionLeft[textIndex].ToString();
         StartCoroutine(DiceActionCoroutine());
 
 

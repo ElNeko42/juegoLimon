@@ -4092,8 +4092,8 @@ MonoBehaviour:
   statText: {fileID: 1291763848}
   statValue: {fileID: 1443815984}
   totalValue: {fileID: 1158114723}
+  condicion: {fileID: 2130392072}
   aceptar: {fileID: 1722731603}
-  tirar: {fileID: 0}
 --- !u!1 &1565404637
 GameObject:
   m_ObjectHideFlags: 0

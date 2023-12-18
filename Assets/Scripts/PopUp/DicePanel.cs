@@ -10,8 +10,9 @@ public class DicePanel : MonoBehaviour
     public TMP_Text statText;
     public TMP_Text statValue;
     public TMP_Text totalValue;
+    public TMP_Text condicion;
     public Button aceptar;
-    public Button tirar;
+  
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class DicePanel : MonoBehaviour
         this.gameObject.SetActive(true);
         totalValue.gameObject.SetActive(false);
         aceptar.gameObject.SetActive(false);
-        tirar.gameObject.SetActive(true);
+       
     }
 
     public void HidePannel()
