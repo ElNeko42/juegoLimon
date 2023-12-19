@@ -136,151 +136,151 @@ MonoBehaviour:
   - "Pos seguiremos igu\xE1 (-2 fuerza, 2k limones)"
   - "Un pato (+2 sabidur\xEDa, -1 fe, -1 fuerza)"
   responsesLeftSuccess:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
+  - cambioVidas: 1
+    cambioMana: 1
+    cambioPueblo: 1
+    cambioMilitar: 1
+    cambioComida: 1
+    cambioDinero: 1
   responsesLeftFail:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
+    cambioDinero: -2
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
+    cambioDinero: -2
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
+    cambioDinero: -2
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: -2
+    cambioMana: -2
+    cambioPueblo: -2
+    cambioMilitar: -2
+    cambioComida: -2
     cambioDinero: 0
   responsesRightSuccess:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
+  - cambioVidas: 2
+    cambioMana: 2
+    cambioPueblo: 2
+    cambioMilitar: 2
+    cambioComida: 2
     cambioDinero: 0
   responsesRightFail:
   - cambioVidas: 0

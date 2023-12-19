@@ -3479,12 +3479,24 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: playerMana
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
       propertyPath: playerName
       value: Manolo
       objectReference: {fileID: 0}
     - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
       propertyPath: playerVida
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: playerComida
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: playerDinero
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}

@@ -10,7 +10,9 @@ public class DiceController : MonoBehaviour
     private Animator animator;
 
     public bool isDiceRolled = false;
+    public static bool  cambiosStat = false;
     int diceValue = -1;
+    public static int totalValue = 0;
 
     void Start()
     {
@@ -42,8 +44,10 @@ public class DiceController : MonoBehaviour
         int valorHabilidad = CardManager.statValue;
         DicePanel dicePanel = this.transform.parent.GetComponent<DicePanel>();
         dicePanel.totalValue.gameObject.SetActive(true);
-        dicePanel.totalValue.text = (diceValue + valorHabilidad ).ToString();
+        totalValue = diceValue + valorHabilidad;
+        dicePanel.totalValue.text = totalValue.ToString();
         dicePanel.aceptar.gameObject.SetActive(true);
+        cambiosStat = true;
     }
 }
 

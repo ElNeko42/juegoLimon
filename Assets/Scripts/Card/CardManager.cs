@@ -23,7 +23,9 @@ public class CardManager : MonoBehaviour
 
     int textIndex = 0;
     bool diceUsed = false;
-   public static int statValue = 0;
+    public static int statValue = 0;
+    public static int totalvalue = 0;
+    int valorObjetivo = 0;
 
     private void Awake()
     {
@@ -93,7 +95,6 @@ public class CardManager : MonoBehaviour
         currentCard.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // Centra la carta en el Canvas
         DisplayRandomCardText();
         MakeOptionsInvisible();
-        Debug.Log("prueba");
         if (GameManager.instance == null)
         {
             Debug.LogError("GameManager instance is null");
@@ -156,8 +157,9 @@ public class CardManager : MonoBehaviour
     void CardEffectChar(bool optionChosen, CardData cardData)
     {
         // Obtiene la estructura de respuesta correcta en función de la elección
-        CardResponse response = optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex];
         GameManager gameManager = GameManager.instance;
+        int valorObjetivo = optionChosen ? cardData.accionRight[textIndex] : cardData.accionLeft[textIndex];
+
         // Obtiene el valor de la estadística correspondiente
         string statPoints = optionChosen ? gameManager.rolPlayer.GetPuntosHabilidad(cardData.tipoRight[textIndex]).ToString() : gameManager.rolPlayer.GetPuntosHabilidad(cardData.tipoLeft[textIndex]).ToString();
         statValue = int.Parse(statPoints);
@@ -166,24 +168,22 @@ public class CardManager : MonoBehaviour
         DicePanel panel = dicePanel.GetComponent<DicePanel>();
         panel.ShowPannel();
         panel.statText.text = statText;
-        panel.condicion.text = optionChosen ? "Para ganar, el total debe ser mayor a " + cardData.accionRight[textIndex].ToString() : "Para ganar, el total debe ser mayor a " + cardData.accionLeft[textIndex].ToString();
-        StartCoroutine(DiceActionCoroutine());
+        panel.condicion.text = "Para ganar, el total debe ser mayor a " + valorObjetivo.ToString();
+       StartCoroutine(DiceActionCoroutine());
+        totalvalue = DiceController.totalValue;
+        bool esExito = totalvalue >= valorObjetivo;
+        // Obtiene la estructura de respuesta correcta en función de la elección
+        CardResponse response = esExito ?
+        (optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex]) :
+        (optionChosen ? cardData.responsesRightFail[textIndex] : cardData.responsesLeftFail[textIndex]);
+        //debug de los responses
+        Debug.Log("cambioVidas: " + response.cambioVidas);
+        Debug.Log("cambioMana: " + response.cambioMana);
+        Debug.Log("cambioComida: " + response.cambioComida);
+        Debug.Log("cambioDinero: " + response.cambioDinero);
+        StartCoroutine(AplicarRespuestaDespuesDeDados(optionChosen, cardData));
 
 
-
-        // Actualiza las variables en GameManager con los valores de la respuesta
-        gameManager.player.playerVida += response.cambioVidas;
-        gameManager.player.playerMana += response.cambioMana;
-        gameManager.player.playerComida += response.cambioComida;
-
-        // Actualiza dinero asegurándose de que no exceda los límites establecidos
-        GameManager.instance.player.playerDinero = Mathf.Clamp(GameManager.instance.player.playerDinero + response.cambioDinero, -99999, 99999);
-
-        // Actualiza los textos
-        gameManager.textControl.vidaTextMesh.text = GameManager.instance.player.playerVida.ToString();
-        gameManager.textControl.manaTextMesh.text = GameManager.instance.player.playerMana.ToString();
-        gameManager.textControl.comidaTextMesh.text = GameManager.instance.player.playerComida.ToString();
-        gameManager.textControl.dineroTextMesh.text = GameManager.instance.player.playerDinero.ToString();
     }
 
     void CardEffectEvent(bool optionChosen, CardData cardData)
@@ -250,6 +250,37 @@ public class CardManager : MonoBehaviour
         //{
 
         //}
+    }
+
+    IEnumerator AplicarRespuestaDespuesDeDados(bool optionChosen, CardData cardData)
+    {
+        GameManager gameManager = GameManager.instance;
+        // Espera a que se complete la tirada de dados
+        yield return new WaitUntil(() => DiceController.cambiosStat);
+
+        // Lógica para determinar si la tirada es un éxito y aplicar la respuesta
+        int valorObjetivo = optionChosen ? cardData.accionRight[textIndex] : cardData.accionLeft[textIndex];
+        bool esExito = DiceController.totalValue >= valorObjetivo;
+
+        CardResponse response = esExito ?
+            (optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex]) :
+            (optionChosen ? cardData.responsesRightFail[textIndex] : cardData.responsesLeftFail[textIndex]);
+
+        // Aplicar la respuesta
+        gameManager.player.playerVida += response.cambioVidas;
+        Debug.Log("cambioVidas: " + gameManager.player.playerVida);
+        gameManager.player.playerMana += response.cambioMana;
+        Debug.Log("cambioMana: " + gameManager.player.playerMana);
+        gameManager.player.playerComida += response.cambioComida;
+        Debug.Log("cambioComida: " + gameManager.player.playerComida);
+        gameManager.player.playerDinero = Mathf.Clamp(gameManager.player.playerDinero + response.cambioDinero, -99999, 99999);
+        
+        // Actualizar los textos
+        gameManager.textControl.vidaTextMesh.text = gameManager.player.playerVida.ToString();
+        gameManager.textControl.manaTextMesh.text = gameManager.player.playerMana.ToString();
+        gameManager.textControl.comidaTextMesh.text = gameManager.player.playerComida.ToString();
+        gameManager.textControl.dineroTextMesh.text = gameManager.player.playerDinero.ToString();
+
     }
 
 
