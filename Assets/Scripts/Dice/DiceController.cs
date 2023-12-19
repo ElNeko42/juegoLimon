@@ -39,10 +39,10 @@ public class DiceController : MonoBehaviour
         Vector3 rotationEuler = transform.rotation.eulerAngles;
         rotationEuler.z = 0;
         transform.rotation = Quaternion.Euler(rotationEuler);
-
+        int valorHabilidad = CardManager.statValue;
         DicePanel dicePanel = this.transform.parent.GetComponent<DicePanel>();
         dicePanel.totalValue.gameObject.SetActive(true);
-       // dicePanel.totalValue.text = (diceValue + int.Parse(dicePanel.statValue.text)).ToString();
+        dicePanel.totalValue.text = (diceValue + valorHabilidad ).ToString();
         dicePanel.aceptar.gameObject.SetActive(true);
     }
 }

@@ -23,6 +23,7 @@ public class CardManager : MonoBehaviour
 
     int textIndex = 0;
     bool diceUsed = false;
+   public static int statValue = 0;
 
     private void Awake()
     {
@@ -159,6 +160,7 @@ public class CardManager : MonoBehaviour
         GameManager gameManager = GameManager.instance;
         // Obtiene el valor de la estadística correspondiente
         string statPoints = optionChosen ? gameManager.rolPlayer.GetPuntosHabilidad(cardData.tipoRight[textIndex]).ToString() : gameManager.rolPlayer.GetPuntosHabilidad(cardData.tipoLeft[textIndex]).ToString();
+        statValue = int.Parse(statPoints);
         // Obtiene el texto de la estadística correspondiente
         string statText = optionChosen ? cardData.tipoRight[textIndex].ToString() + " " + statPoints : cardData.tipoLeft[textIndex].ToString() + " " + statPoints;
         DicePanel panel = dicePanel.GetComponent<DicePanel>();
