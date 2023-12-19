@@ -42,7 +42,7 @@ public class DiceController : MonoBehaviour
 
         DicePanel dicePanel = this.transform.parent.GetComponent<DicePanel>();
         dicePanel.totalValue.gameObject.SetActive(true);
-        dicePanel.totalValue.text = (diceValue + int.Parse(dicePanel.statValue.text)).ToString();
+       // dicePanel.totalValue.text = (diceValue + int.Parse(dicePanel.statValue.text)).ToString();
         dicePanel.aceptar.gameObject.SetActive(true);
     }
 }

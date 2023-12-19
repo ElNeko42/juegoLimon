@@ -138,9 +138,9 @@ public class CardManager : MonoBehaviour
                 case CardType.CHAR:
                     CardEffectChar(optionChosen, cardData);
                     break;
-                case CardType.EVENT:
-                    CardEffectEvent(optionChosen, cardData);
-                    break;
+                    //case CardType.EVENT:
+                    //    CardEffectEvent(optionChosen, cardData);
+                    //    break;
                     //case CardType.LUCK:
                     //    CardEffectLuck(optionChosen, cardData);
                     //    break;
@@ -157,14 +157,16 @@ public class CardManager : MonoBehaviour
         // Obtiene la estructura de respuesta correcta en función de la elección
         CardResponse response = optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex];
         GameManager gameManager = GameManager.instance;
-        string statText = "5";
-        string statValue = "12";
+        // Obtiene el valor de la estadística correspondiente
+        string statPoints = optionChosen ? gameManager.rolPlayer.GetPuntosHabilidad(cardData.tipoRight[textIndex]).ToString() : gameManager.rolPlayer.GetPuntosHabilidad(cardData.tipoLeft[textIndex]).ToString();
+        // Obtiene el texto de la estadística correspondiente
+        string statText = optionChosen ? cardData.tipoRight[textIndex].ToString() + " " + statPoints : cardData.tipoLeft[textIndex].ToString() + " " + statPoints;
         DicePanel panel = dicePanel.GetComponent<DicePanel>();
         panel.ShowPannel();
         panel.statText.text = statText;
-        panel.statValue.text = statValue;
         panel.condicion.text = optionChosen ? "Para ganar, el total debe ser mayor a " + cardData.accionRight[textIndex].ToString() : "Para ganar, el total debe ser mayor a " + cardData.accionLeft[textIndex].ToString();
         StartCoroutine(DiceActionCoroutine());
+
 
 
         // Actualiza las variables en GameManager con los valores de la respuesta
@@ -189,7 +191,6 @@ public class CardManager : MonoBehaviour
         if (!optionChosen)
         {
             string statText = "";
-            string statValue = "";
             Debug.Log("Carta es nula: " + cardData == null);
             //switch (cardData.statType)
             //{
@@ -209,7 +210,6 @@ public class CardManager : MonoBehaviour
             DicePanel panel = dicePanel.GetComponent<DicePanel>();
             panel.ShowPannel();
             panel.statText.text = statText;
-            panel.statValue.text = statValue;
             StartCoroutine(DiceActionCoroutine());
 
         }

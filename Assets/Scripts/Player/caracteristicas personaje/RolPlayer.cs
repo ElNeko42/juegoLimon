@@ -54,4 +54,22 @@ public class RolPlayer : MonoBehaviour
         }
     }
 
+    public int GetPuntosHabilidad(Tipo tipoHabilidad)
+    {
+        switch (tipoHabilidad)
+        {
+            case Tipo.Fuerza:
+                return habilidades.fuerza;
+            case Tipo.Sabiduria:
+                return habilidades.sabiduria;
+            case Tipo.Fe:
+                return habilidades.fe;
+            case Tipo.Suerte:
+                return habilidades.suerte;
+            default:
+                return 0;
+        }
+    }
+
+
 }

@@ -6,9 +6,10 @@ using UnityEngine;
  */
 public enum Tipo
 {
-    Fe = 1,
-    Fuerza = 2,
-    Conocimiento = 3
+    Fe,
+    Fuerza,
+    Sabiduria,
+    Suerte
 }
 
 public enum CardType { CHAR, EVENT, LUCK, BOSS }

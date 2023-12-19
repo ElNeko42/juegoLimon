@@ -169,7 +169,7 @@ MonoBehaviour:
     cambioDinero: 0
   cardType: 0
   lugarType: 0
-  tipoLeft: 0000000000000000
-  tipoRight: 0000000000000000
+  tipoLeft: 0100000001000000
+  tipoRight: 0200000002000000
   accionLeft: 0300000003000000
   accionRight: 0000000000000000

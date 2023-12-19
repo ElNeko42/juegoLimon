@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classType: 1
   habilidades:
-    fuerza: 0
-    sabiduria: 0
-    fe: 0
-    suerte: 0
+    fuerza: 4
+    sabiduria: 2
+    fe: 3
+    suerte: 2
 --- !u!114 &2189449870915959955
 MonoBehaviour:
   m_ObjectHideFlags: 0
