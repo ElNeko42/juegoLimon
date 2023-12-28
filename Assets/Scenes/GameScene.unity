@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DIAS: 0'
+  m_text: dias_key
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1752,44 +1752,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 778510192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: ca88242510db5394b866b794390dd2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:abf76223ce6e4954b8c380da832bea6b
-    m_TableEntryReference:
-      m_KeyId: 12264112128
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables:
-    - name: variable
-      variable:
-        rid: 6273598427400241157
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 778510194}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 6273598427400241157
-      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables, asm: Unity.Localization}
-      data:
-        m_Value: {fileID: 0}
 --- !u!1 &778756523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,7 +4281,6 @@ MonoBehaviour:
   cardTextMesh: {fileID: 2086474431}
   leftOptionTextMesh: {fileID: 1235481550}
   rightOptionTextMesh: {fileID: 251659631}
-  localizeStringEvent: {fileID: 778510196}
 --- !u!4 &1703539582
 Transform:
   m_ObjectHideFlags: 0
