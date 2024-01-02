@@ -9,6 +9,12 @@ public static class Data
     public static string CURRENT_LANGUAGE = "es";
     public static Dictionary<string, Dictionary<string, string>> LOCALIZATION = new Dictionary<string, Dictionary<string, string>>()
     {
+          {"aceptar_key", new Dictionary<string, string>()
+        {
+                {"en", "accept"},
+                { "es","Aceptar"},
+            }
+        },
         {"play_key", new Dictionary<string, string>()
         {
                 {"en", "Play"},
@@ -37,7 +43,7 @@ public static class Data
         },
 
     };
-    public static string[] LANGUAGES = new string[] { "en", "es" };
+    public static string[] LANGUAGES = new string[] { "es", "en" };
 
     //use singleton pattern
     private static UnityEvent _onLanguageChanged;

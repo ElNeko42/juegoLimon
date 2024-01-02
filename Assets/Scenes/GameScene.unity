@@ -716,7 +716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Derecha
+  m_text: asdsad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 517337201}
   - component: {fileID: 517337203}
   - component: {fileID: 517337202}
+  - component: {fileID: 517337204}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1296,6 +1297,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517337200}
   m_CullTransparentMesh: 1
+--- !u!114 &517337204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517337200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b56604392ac8834ca872a234efec5b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: aceptar_key
 --- !u!1 &585625844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,9 +1766,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 778510192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca88242510db5394b866b794390dd2d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3db98f2cd5d7686408bc0a2f7b0b79c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: dias_key
+  value: 0
 --- !u!1 &778756523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3496,10 @@ PrefabInstance:
     - target: {fileID: 28424796004001019, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
+      propertyPath: dias
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2189449870915959955, guid: 2dbd5517dd6ba814a9d7071abee02358, type: 3}
       propertyPath: playerMana

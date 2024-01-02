@@ -106,7 +106,10 @@ public class CardManager : MonoBehaviour
         Debug.Log("dias: " + GameManager.instance.player.dias);
         GameManager.instance.player.dias++;
         Debug.Log("dias: " + GameManager.instance.player.dias);
-        GameManager.instance.textControl.diasTextMesh.text = "dias: " + GameManager.instance.player.dias.ToString();
+        TextTranslatorDynamic textTranslatorDia = GameManager.instance.textControl.diasTextMesh.GetComponent<TextTranslatorDynamic>();
+        textTranslatorDia.SetValue(GameManager.instance.player.dias);
+        textTranslatorDia.UpdateText();
+        // GameManager.instance.textControl.diasTextMesh.text = "dias: " + GameManager.instance.player.dias.ToString();
 
     }
 
@@ -177,10 +180,10 @@ public class CardManager : MonoBehaviour
         (optionChosen ? cardData.responsesRightSuccess[textIndex] : cardData.responsesLeftSuccess[textIndex]) :
         (optionChosen ? cardData.responsesRightFail[textIndex] : cardData.responsesLeftFail[textIndex]);
         //debug de los responses
-        Debug.Log("cambioVidas: " + response.cambioVidas);
-        Debug.Log("cambioMana: " + response.cambioMana);
-        Debug.Log("cambioComida: " + response.cambioComida);
-        Debug.Log("cambioDinero: " + response.cambioDinero);
+        //Debug.Log("cambioVidas: " + response.cambioVidas);
+        //Debug.Log("cambioMana: " + response.cambioMana);
+        //Debug.Log("cambioComida: " + response.cambioComida);
+        //Debug.Log("cambioDinero: " + response.cambioDinero);
         StartCoroutine(AplicarRespuestaDespuesDeDados(optionChosen, cardData));
 
 

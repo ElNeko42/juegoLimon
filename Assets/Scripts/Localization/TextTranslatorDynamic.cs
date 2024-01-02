@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
-public class TextTranslator : MonoBehaviour
+public class TextTranslatorDynamic : MonoBehaviour
 {
     TextMeshProUGUI text;
-    string key ;
-    public static int coins = 0;
+    public string key;
+    public int value = 0;
+
+
     private void Awake()
     {
-         text = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>();
         if (text == null)
         {
             Debug.LogError("TextMeshProUGUI component no encontrado en el GameObject.");
             return;
         }
 
-        key = text.text;
         if (!Data.LOCALIZATION.ContainsKey(key))
         {
             Debug.LogError($"La clave '{key}' no existe en el diccionario LOCALIZATION.");
@@ -41,10 +41,10 @@ public class TextTranslator : MonoBehaviour
     {
         if (Data.LOCALIZATION[key].ContainsKey(Data.CURRENT_LANGUAGE))
         {
-           
-           
+
+
             string format = Data.LOCALIZATION[key][Data.CURRENT_LANGUAGE];
-            text.text = string.Format(format, coins);
+            text.text = string.Format(format, value);
         }
         else
         {
@@ -55,8 +55,15 @@ public class TextTranslator : MonoBehaviour
     public void UpdateText()
     {
         string format = Data.LOCALIZATION[key][Data.CURRENT_LANGUAGE];
-        text.text = string.Format(format, coins);
+        text.text = string.Format(format, value);
     }
 
+    public void SetValue(int newValue)
+    {
+        value = newValue;
+        UpdateText();
+    }
 
 }
+
+
