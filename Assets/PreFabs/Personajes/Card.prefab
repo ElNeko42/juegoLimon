@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4804501462590323605}
   - component: {fileID: 4804501462590323690}
   - component: {fileID: 4804501462590323691}
-  - component: {fileID: 3127339863307370813}
+  - component: {fileID: 3324991306533116024}
   m_Layer: 5
-  m_Name: CartaMalaSuerte
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -68,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dfeba27a422aedf48807768e0d1f59c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7793acc332d632c4ea01bc25c5892acf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -93,7 +92,7 @@ MonoBehaviour:
   maxDragDistanceHorizontal: 200
   maxDragDistanceVertical: 100
   maxRotation: 10
---- !u!114 &3127339863307370813
+--- !u!114 &3324991306533116024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,78 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4804501462590323689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ef3b8013b0f87848a4322214234418b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d9fbe6f9c3f159449cb9f4fc382dde1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: Evento
-  cardTexts:
-  - "Un lim\xF3n gigante ha aparecido en la frontera norte del pa\xEDs. Ha empezado
-    a arrasar varios pueblos fronterizos y se dirige con paso ligero a la capital.
-    Debemos actuar antes de que sea demasiado tarde."
-  - "Un lim\xF3n gigante ha aparecido en la frontera norte del pa\xEDs. Ha empezado
-    a arrasar varios pueblos fronterizos y se dirige con paso ligero a la capital.
-    Debemos actuar antes de que sea demasiado tarde."
-  leftOptions:
-  - Atacar
-  - Atacar
-  rightOptions:
-  - No hacer nada
-  - No hacer nada
-  responsesLeftSuccess:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  responsesLeftFail:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  responsesRightSuccess:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  responsesRightFail:
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  - cambioVidas: 0
-    cambioMana: 0
-    cambioPueblo: 0
-    cambioMilitar: 0
-    cambioComida: 0
-    cambioDinero: 0
-  cardType: 2
-  lugarType: 0
-  tipoLeft: 0000000000000000
-  tipoRight: 0000000000000000
-  accionLeft: 0000000000000000
-  accionRight: 0000000000000000
+  cardData: {fileID: 0}

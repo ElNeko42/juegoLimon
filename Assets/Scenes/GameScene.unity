@@ -4292,10 +4292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - {fileID: 4804501462590323689, guid: eff241a7685b9b64fbf45ddc02424310, type: 3}
-  - {fileID: 3126114320070202324, guid: 45564196c6edbc14bace6a14f8f8d8ef, type: 3}
   - {fileID: 5437617938542674113, guid: b8c861edf29c33641af0a7c7a474947f, type: 3}
-  - {fileID: 4804501462590323689, guid: 07a9aeca37db7e34297127b622b447a1, type: 3}
-  - {fileID: 4804501462590323689, guid: 5da3a5d2e83bbb546b5158886881b99b, type: 3}
+  - {fileID: 3126114320070202324, guid: 45564196c6edbc14bace6a14f8f8d8ef, type: 3}
   dicePanel: {fileID: 1549539922}
   NameTextMesh: {fileID: 94492856}
   cardTextMesh: {fileID: 2086474431}
